@@ -1,0 +1,4 @@
+# Settings for Firebase App Hosting
+
+# Serves all static files from the public directory
+buildCommand: "echo 'No build needed for static site'"
