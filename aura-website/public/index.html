@@ -1,1691 +1,1013 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA - AI Concierge Platform for Luxury Hotels | Every Guest Deserves a Genius</title>
-    <meta name="description" content="Transform guest experience with AI-powered concierge service. Remember every preference, anticipate needs, increase revenue. 30-day free trial.">
+    <title>ABC - AI Concierge for Hotels | WhatsApp Automation with Human Oversight</title>
+    <meta name="description" content="Give every guest personalized service via WhatsApp. Your team stays in control, AI handles the details. Starting at $500/month.">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>💬</text></svg>">
     
-    <!-- Custom Tailwind Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'aura-gold': '#FFD700',
-                        'aura-dark': '#0A0A0A',
-                        'aura-darker': '#050505',
-                        'aura-gray': '#1A1A1A',
-                        'aura-light-gray': '#2A2A2A'
-                    },
-                    fontFamily: {
-                        'display': ['Playfair Display', 'serif'],
-                        'sans': ['Inter', 'sans-serif']
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Custom Styles -->
     <style>
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        :root {
+            --primary: #1e3a8a;
+            --accent: #10b981;
+            --text: #1f2937;
+            --text-muted: #6b7280;
+            --bg: #ffffff;
+            --bg-light: #f9fafb;
+            --bg-accent: #f3f4f6;
+            --max-width: 1200px;
+            --spacing-unit: 8px;
+            --border-radius: 8px;
         }
-        
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        @keyframes flow {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
         }
-        
-        .gradient-gold {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+
+        /* Typography */
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
         }
-        
-        .text-gradient-gold {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
         }
-        
-        .hero-gradient {
-            background: radial-gradient(ellipse at top, #1a1a1a 0%, #0a0a0a 100%);
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
         }
-        
-        .glow {
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
         }
-        
-        .glow-hover:hover {
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+
+        /* Layout */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) * 2);
+        }
+
+        section {
+            padding: calc(var(--spacing-unit) * 10) 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1e3a8a;
             transform: translateY(-2px);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
         }
-        
-        .neural-line {
-            stroke: #FFD700;
-            stroke-width: 2;
-            fill: none;
-            opacity: 0.3;
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
         }
-        
-        .neural-node {
-            fill: #FFD700;
-            animation: pulse-glow 2s ease-in-out infinite;
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
         }
-        
-        .data-flow {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #FFD700;
+
+        /* Hero Section */
+        .hero {
+            padding: calc(var(--spacing-unit) * 15) 0;
+            text-align: center;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero-image {
+            max-width: 100%;
+            margin-top: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Cards and Grids */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background: var(--primary);
+            color: white;
             border-radius: 50%;
-            animation: flow 3s linear infinite;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
-        
-        .dashboard-card {
-            backdrop-filter: blur(10px);
-            background: rgba(26, 26, 26, 0.8);
+
+        .arrow {
+            font-size: 2rem;
+            color: var(--primary);
+            flex: 0 0 auto;
         }
-        
-        .metric-card {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%);
+
+        /* Features */
+        .feature-columns {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
         }
+
+        .what-it-does ul, .coming-soon ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .what-it-does li, .coming-soon li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--bg-accent);
+        }
+
+        .what-it-does li:last-child, .coming-soon li:last-child {
+            border-bottom: none;
+        }
+
+        .coming-soon {
+            opacity: 0.7;
+        }
+
+        .coming-soon h3 {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* Testimonials */
+        .testimonial {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent);
+        }
+
+        .testimonial blockquote {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial cite {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Pricing */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--bg);
+            border: 2px solid var(--bg-accent);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .pricing-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        details {
+            background: var(--bg);
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            padding: 0;
+            border: 1px solid var(--bg-accent);
+        }
+
+        summary {
+            padding: 1.25rem;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        details p {
+            padding: 0 1.25rem 1.25rem;
+            color: var(--text-muted);
+        }
+
+        /* CTA Sections */
+        .cta-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .final-cta {
+            text-align: center;
+            background: var(--bg-light);
+            padding: calc(var(--spacing-unit) * 10) 0;
+        }
+
+        .final-cta .btn {
+            margin-top: 2rem;
+        }
+
+        .alternative {
+            margin-top: 1rem;
+            color: var(--text-muted);
+        }
+
+        .alternative a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .footer-nav a:hover {
+            opacity: 1;
+        }
+
+        /* WhatsApp Mockup */
+        .whatsapp-demo {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 3rem auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .phone-mockup {
+            background: white;
+            border-radius: 30px;
+            padding: 1rem;
+            max-width: 350px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .chat-header {
+            background: #075e54;
+            color: white;
+            padding: 1rem;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chat-body {
+            background: #e5ddd5;
+            padding: 1rem;
+            min-height: 300px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+
+        .message.guest {
+            background: white;
+            margin-left: auto;
+            border-bottom-right-radius: 2px;
+        }
+
+        .message.bot {
+            background: #dcf8c6;
+            border-bottom-left-radius: 2px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .process-steps {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .feature-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            section {
+                padding: calc(var(--spacing-unit) * 6) 0;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .text-muted { color: var(--text-muted); }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .mt-4 { margin-top: 2rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .mb-4 { margin-bottom: 2rem; }
     </style>
 </head>
-<body class="bg-aura-dark text-gray-100 font-sans">
-    
+<body>
     <!-- Navigation -->
-    <nav class="fixed w-full top-0 z-50 bg-aura-dark/80 backdrop-blur-lg border-b border-aura-gray">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <a href="#" class="text-2xl font-display text-aura-gold">AURA</a>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#product" class="text-gray-300 hover:text-aura-gold transition">Product</a>
-                    <a href="#hotels" class="text-gray-300 hover:text-aura-gold transition">For Hotels</a>
-                    <a href="#resorts" class="text-gray-300 hover:text-aura-gold transition">For Resorts</a>
-                    <a href="#agencies" class="text-gray-300 hover:text-aura-gold transition">For Agencies</a>
-                    <a href="#pricing" class="text-gray-300 hover:text-aura-gold transition">Pricing</a>
-                    <a href="#resources" class="text-gray-300 hover:text-aura-gold transition">Resources</a>
-                    <a href="#demo" class="bg-aura-gold text-aura-dark px-6 py-2 rounded-full font-semibold hover:bg-yellow-600 transition glow-hover">Demo</a>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden text-gray-300" id="mobile-menu-btn">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#product" class="block px-3 py-2 text-gray-300 hover:text-aura-gold">Product</a>
-                <a href="#hotels" class="block px-3 py-2 text-gray-300 hover:text-aura-gold">For Hotels</a>
-                <a href="#resorts" class="block px-3 py-2 text-gray-300 hover:text-aura-gold">For Resorts</a>
-                <a href="#agencies" class="block px-3 py-2 text-gray-300 hover:text-aura-gold">For Agencies</a>
-                <a href="#pricing" class="block px-3 py-2 text-gray-300 hover:text-aura-gold">Pricing</a>
-                <a href="#resources" class="block px-3 py-2 text-gray-300 hover:text-aura-gold">Resources</a>
-                <a href="#demo" class="block px-3 py-2 bg-aura-gold text-aura-dark rounded-full text-center font-semibold">Demo</a>
-            </div>
-        </div>
-    </nav>
-    
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">ABC</a>
+            <ul class="nav-links">
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#demo" class="btn btn-primary">Book Demo</a></li>
+            </ul>
+            <button class="mobile-menu-toggle">☰</button>
+        </nav>
+    </header>
+
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden pt-20">
-        <!-- Animated Background Particles -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute w-64 h-64 bg-aura-gold/10 rounded-full blur-3xl animate-float" style="top: 10%; left: 10%;"></div>
-            <div class="absolute w-96 h-96 bg-aura-gold/5 rounded-full blur-3xl animate-float" style="bottom: 10%; right: 10%; animation-delay: 2s;"></div>
-            <div class="absolute w-80 h-80 bg-aura-gold/5 rounded-full blur-3xl animate-float" style="top: 50%; left: 50%; animation-delay: 4s;"></div>
-        </div>
-        
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <!-- Trust Badges -->
-            <div class="flex justify-center space-x-6 mb-8">
-                <span class="text-sm text-gray-400 flex items-center">
-                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    WhatsApp Integrated
-                </span>
-                <span class="text-sm text-gray-400 flex items-center">
-                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    SOC 2 Compliant
-                </span>
-                <span class="text-sm text-gray-400 flex items-center">
-                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
-                    </svg>
-                    24/7 Support
-                </span>
-            </div>
+    <section class="hero">
+        <div class="container">
+            <h1>Your AI Concierge That Never Forgets a Guest</h1>
+            <p class="subtitle">Give every guest personalized service via WhatsApp. Your team stays in control, AI handles the details.</p>
             
-            <!-- Headline -->
-            <h1 class="text-5xl md:text-7xl font-display mb-6">
-                Every Guest Deserves a <span class="text-gradient-gold">Genius</span>
-            </h1>
-            
-            <!-- Subheadline -->
-            <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto">
-                AI-powered concierge service that remembers every preference, anticipates every need, and delivers personalized experiences at infinite scale
-            </p>
-            
-            <!-- CTAs -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#demo" class="bg-aura-gold text-aura-dark px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-600 transition glow-hover">
-                    Book a Demo
-                </a>
-                <a href="#roi-calculator" class="border-2 border-aura-gold text-aura-gold px-8 py-4 rounded-full font-semibold text-lg hover:bg-aura-gold hover:text-aura-dark transition">
-                    Calculate Your ROI
-                </a>
-            </div>
-        </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-        </div>
-    </section>
-    
-    <!-- Problems Section -->
-    <section class="py-20 bg-aura-darker" id="problems">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display text-center mb-16">The Challenge with Traditional Concierge Service</h2>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Problem 1 -->
-                <div class="bg-aura-gray p-8 rounded-2xl border border-aura-light-gray hover:border-aura-gold transition">
-                    <div class="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Memory Limitations</h3>
-                    <p class="text-gray-400">Guests expect personalization but concierges can't remember everyone's preferences, allergies, and special requests across thousands of interactions.</p>
-                </div>
-                
-                <!-- Problem 2 -->
-                <div class="bg-aura-gray p-8 rounded-2xl border border-aura-light-gray hover:border-aura-gold transition">
-                    <div class="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Inconsistent Quality</h3>
-                    <p class="text-gray-400">Service quality varies dramatically with staff changes, training gaps, and shift rotations, leading to unpredictable guest experiences.</p>
-                </div>
-                
-                <!-- Problem 3 -->
-                <div class="bg-aura-gray p-8 rounded-2xl border border-aura-light-gray hover:border-aura-gold transition">
-                    <div class="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Scaling Challenges</h3>
-                    <p class="text-gray-400">Luxury service doesn't scale efficiently. Adding more concierges increases costs exponentially while service quality remains inconsistent.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- How AURA Works Section -->
-    <section class="py-20 bg-aura-dark" id="product">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display text-center mb-6">How AURA Works</h2>
-            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">Transform every guest interaction into a personalized experience with our AI-powered workflow</p>
-            
-            <!-- Timeline -->
-            <div class="relative">
-                <!-- Timeline Line -->
-                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-aura-gold to-transparent"></div>
-                
-                <!-- Timeline Steps -->
-                <div class="space-y-12">
-                    <!-- Step 1 -->
-                    <div class="relative flex items-center md:justify-between">
-                        <div class="md:w-5/12 md:text-right">
-                            <h3 class="text-2xl font-semibold mb-2">Guest Books</h3>
-                            <p class="text-gray-400">AURA instantly creates a personalized profile, capturing preferences and history</p>
-                        </div>
-                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-aura-gold rounded-full hidden md:flex items-center justify-center">
-                            <span class="text-aura-dark font-bold">1</span>
-                        </div>
-                        <div class="md:w-5/12"></div>
-                    </div>
-                    
-                    <!-- Step 2 -->
-                    <div class="relative flex items-center md:justify-between">
-                        <div class="md:w-5/12"></div>
-                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-aura-gold rounded-full hidden md:flex items-center justify-center">
-                            <span class="text-aura-dark font-bold">2</span>
-                        </div>
-                        <div class="md:w-5/12 md:text-left">
-                            <h3 class="text-2xl font-semibold mb-2">Pre-Arrival Magic</h3>
-                            <p class="text-gray-400">Proactive preferences and arrangements prepared before check-in</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 3 -->
-                    <div class="relative flex items-center md:justify-between">
-                        <div class="md:w-5/12 md:text-right">
-                            <h3 class="text-2xl font-semibold mb-2">During Stay Excellence</h3>
-                            <p class="text-gray-400">24/7 intelligent assistance via WhatsApp, SMS, or your preferred channel</p>
-                        </div>
-                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-aura-gold rounded-full hidden md:flex items-center justify-center">
-                            <span class="text-aura-dark font-bold">3</span>
-                        </div>
-                        <div class="md:w-5/12"></div>
-                    </div>
-                    
-                    <!-- Step 4 -->
-                    <div class="relative flex items-center md:justify-between">
-                        <div class="md:w-5/12"></div>
-                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-aura-gold rounded-full hidden md:flex items-center justify-center">
-                            <span class="text-aura-dark font-bold">4</span>
-                        </div>
-                        <div class="md:w-5/12 md:text-left">
-                            <h3 class="text-2xl font-semibold mb-2">Loyalty That Lasts</h3>
-                            <p class="text-gray-400">Relationship continues post-stay, building lifetime guest value</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Core Capabilities Section -->
-    <section class="py-20 bg-aura-darker">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display text-center mb-6">Core Capabilities</h2>
-            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">Powered by advanced AI to deliver exceptional service at scale</p>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Capability 1 -->
-                <div class="bg-aura-gray p-8 rounded-2xl border border-aura-light-gray hover:border-aura-gold transition group">
-                    <div class="w-16 h-16 bg-aura-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-aura-gold/20 transition">
-                        <svg class="w-8 h-8 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Perpetual Memory</h3>
-                    <p class="text-gray-400">Never forgets a preference, allergy, or special request. Every interaction builds deeper understanding.</p>
-                </div>
-                
-                <!-- Capability 2 -->
-                <div class="bg-aura-gray p-8 rounded-2xl border border-aura-light-gray hover:border-aura-gold transition group">
-                    <div class="w-16 h-16 bg-aura-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-aura-gold/20 transition">
-                        <svg class="w-8 h-8 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Predictive Service</h3>
-                    <p class="text-gray-400">Anticipates needs before they're expressed. Suggests experiences based on preferences and context.</p>
-                </div>
-                
-                <!-- Capability 3 -->
-                <div class="bg-aura-gray p-8 rounded-2xl border border-aura-light-gray hover:border-aura-gold transition group">
-                    <div class="w-16 h-16 bg-aura-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-aura-gold/20 transition">
-                        <svg class="w-8 h-8 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Instant Response</h3>
-                    <p class="text-gray-400">2-minute response time, 24/7/365. Your guests never wait for exceptional service.</p>
-                </div>
-                
-                <!-- Capability 4 -->
-                <div class="bg-aura-gray p-8 rounded-2xl border border-aura-light-gray hover:border-aura-gold transition group">
-                    <div class="w-16 h-16 bg-aura-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-aura-gold/20 transition">
-                        <svg class="w-8 h-8 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Revenue Intelligence</h3>
-                    <p class="text-gray-400">Identifies upsell opportunities intelligently, increasing revenue per guest by 45%.</p>
-                </div>
-                
-                <!-- Capability 5 -->
-                <div class="bg-aura-gray p-8 rounded-2xl border border-aura-light-gray hover:border-aura-gold transition group">
-                    <div class="w-16 h-16 bg-aura-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-aura-gold/20 transition">
-                        <svg class="w-8 h-8 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Seamless Escalation</h3>
-                    <p class="text-gray-400">Human experts step in when needed, with full context and history at their fingertips.</p>
-                </div>
-                
-                <!-- Capability 6 -->
-                <div class="bg-aura-gray p-8 rounded-2xl border border-aura-light-gray hover:border-aura-gold transition group">
-                    <div class="w-16 h-16 bg-aura-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-aura-gold/20 transition">
-                        <svg class="w-8 h-8 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Multi-language</h3>
-                    <p class="text-gray-400">Serves guests fluently in 50+ languages, ensuring everyone feels at home.</p>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="#features" class="text-aura-gold hover:text-yellow-600 font-semibold inline-flex items-center">
-                    See All Features 
-                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Customer Segments Section -->
-    <!-- AURA for Hotels -->
-    <section class="py-20 bg-aura-dark" id="hotels">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <!-- Content -->
-                <div>
-                    <h2 class="text-4xl font-display mb-6">AURA for Hotels</h2>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start">
-                            <svg class="w-6 h-6 text-aura-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <div>
-                                <h3 class="font-semibold text-lg">Reduce concierge costs by 60%</h3>
-                                <p class="text-gray-400">Automate routine requests while enhancing service quality</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <svg class="w-6 h-6 text-aura-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <div>
-                                <h3 class="font-semibold text-lg">Increase guest satisfaction by 40%</h3>
-                                <p class="text-gray-400">Deliver instant, personalized service 24/7</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <svg class="w-6 h-6 text-aura-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <div>
-                                <h3 class="font-semibold text-lg">Scale personalized service infinitely</h3>
-                                <p class="text-gray-400">Every guest gets VIP treatment, regardless of occupancy</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Mini Case Study -->
-                    <div class="bg-aura-gray p-6 rounded-xl border border-aura-light-gray">
-                        <p class="text-aura-gold font-semibold mb-2">Success Story</p>
-                        <p class="text-lg mb-2">"The Savoy reduced service complaints by 70%"</p>
-                        <p class="text-gray-400 text-sm">Within 90 days of implementing AURA, guest satisfaction scores reached an all-time high.</p>
-                    </div>
-                    
-                    <a href="#demo" class="inline-flex items-center mt-8 bg-aura-gold text-aura-dark px-6 py-3 rounded-full font-semibold hover:bg-yellow-600 transition glow-hover">
-                        Learn More About Hotel Solutions
-                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                </div>
-                
-                <!-- Image Placeholder -->
-                <div class="relative h-96 bg-gradient-to-br from-aura-gray to-aura-light-gray rounded-2xl overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <p class="text-gray-500 text-lg">Luxury Hotel Lobby Image</p>
-                    </div>
-                    <div class="absolute top-4 right-4 bg-aura-gold text-aura-dark px-3 py-1 rounded-full text-sm font-semibold">
-                        For Hotels
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- AURA for Resorts -->
-    <section class="py-20 bg-aura-darker" id="resorts">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <!-- Image Placeholder (Left on this one) -->
-                <div class="relative h-96 bg-gradient-to-br from-aura-gray to-aura-light-gray rounded-2xl overflow-hidden order-2 md:order-1">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <p class="text-gray-500 text-lg">Beach Resort Image</p>
-                    </div>
-                    <div class="absolute top-4 right-4 bg-aura-gold text-aura-dark px-3 py-1 rounded-full text-sm font-semibold">
-                        For Resorts
-                    </div>
-                </div>
-                
-                <!-- Content -->
-                <div class="order-1 md:order-2">
-                    <h2 class="text-4xl font-display mb-6">AURA for Resorts</h2>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start">
-                            <svg class="w-6 h-6 text-aura-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <div>
-                                <h3 class="font-semibold text-lg">Coordinate complex itineraries effortlessly</h3>
-                                <p class="text-gray-400">Manage multi-day experiences and activities seamlessly</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <svg class="w-6 h-6 text-aura-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <div>
-                                <h3 class="font-semibold text-lg">Manage group experiences at scale</h3>
-                                <p class="text-gray-400">From intimate retreats to large conferences</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <svg class="w-6 h-6 text-aura-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <div>
-                                <h3 class="font-semibold text-lg">Increase activity bookings by 45%</h3>
-                                <p class="text-gray-400">Smart recommendations drive incremental revenue</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Mini Case Study -->
-                    <div class="bg-aura-gray p-6 rounded-xl border border-aura-light-gray">
-                        <p class="text-aura-gold font-semibold mb-2">Success Story</p>
-                        <p class="text-lg mb-2">"Aman Resorts increased revenue per guest by $500"</p>
-                        <p class="text-gray-400 text-sm">AURA's intelligent upselling and activity recommendations transformed our guest experience.</p>
-                    </div>
-                    
-                    <a href="#demo" class="inline-flex items-center mt-8 bg-aura-gold text-aura-dark px-6 py-3 rounded-full font-semibold hover:bg-yellow-600 transition glow-hover">
-                        Explore Resort Features
-                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- AURA for Travel Agencies -->
-    <section class="py-20 bg-aura-dark" id="agencies">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <!-- Content -->
-                <div>
-                    <h2 class="text-4xl font-display mb-6">AURA for Travel Agencies</h2>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start">
-                            <svg class="w-6 h-6 text-aura-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <div>
-                                <h3 class="font-semibold text-lg">24/7 traveler support worldwide</h3>
-                                <p class="text-gray-400">Your clients get instant help, anywhere, anytime</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <svg class="w-6 h-6 text-aura-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <div>
-                                <h3 class="font-semibold text-lg">Multi-property coordination</h3>
-                                <p class="text-gray-400">Seamless service across entire travel itineraries</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <svg class="w-6 h-6 text-aura-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <div>
-                                <h3 class="font-semibold text-lg">Reduce support tickets by 80%</h3>
-                                <p class="text-gray-400">AURA handles routine requests automatically</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Mini Case Study -->
-                    <div class="bg-aura-gray p-6 rounded-xl border border-aura-light-gray">
-                        <p class="text-aura-gold font-semibold mb-2">Success Story</p>
-                        <p class="text-lg mb-2">"Virtuoso agents save 10 hours per week"</p>
-                        <p class="text-gray-400 text-sm">AURA handles all routine client communications, letting agents focus on crafting exceptional journeys.</p>
-                    </div>
-                    
-                    <a href="#demo" class="inline-flex items-center mt-8 bg-aura-gold text-aura-dark px-6 py-3 rounded-full font-semibold hover:bg-yellow-600 transition glow-hover">
-                        Discover Agency Solutions
-                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                </div>
-                
-                <!-- Image Placeholder -->
-                <div class="relative h-96 bg-gradient-to-br from-aura-gray to-aura-light-gray rounded-2xl overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <p class="text-gray-500 text-lg">Luxury Travel Planning Image</p>
-                    </div>
-                    <div class="absolute top-4 right-4 bg-aura-gold text-aura-dark px-3 py-1 rounded-full text-sm font-semibold">
-                        For Agencies
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ROI Calculator Section -->
-    <section class="py-20 bg-aura-darker" id="roi-calculator">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display text-center mb-6">Calculate Your AURA ROI</h2>
-            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">See how much you could save and earn with AURA</p>
-            
-            <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Input Section -->
-                <div class="bg-aura-gray p-8 rounded-2xl border border-aura-light-gray">
-                    <h3 class="text-2xl font-semibold mb-6">Your Property Details</h3>
-                    
-                    <div class="space-y-6">
-                        <!-- Number of Rooms -->
-                        <div>
-                            <label for="rooms" class="block text-sm font-medium mb-2">Number of Rooms</label>
-                            <input type="number" id="rooms" class="w-full bg-aura-dark border border-aura-light-gray rounded-lg px-4 py-3 text-white focus:border-aura-gold focus:outline-none" placeholder="200" min="1">
-                        </div>
-                        
-                        <!-- Occupancy Rate -->
-                        <div>
-                            <label for="occupancy" class="block text-sm font-medium mb-2">Average Occupancy Rate (%)</label>
-                            <input type="number" id="occupancy" class="w-full bg-aura-dark border border-aura-light-gray rounded-lg px-4 py-3 text-white focus:border-aura-gold focus:outline-none" placeholder="75" min="0" max="100">
-                        </div>
-                        
-                        <!-- Average Daily Rate -->
-                        <div>
-                            <label for="adr" class="block text-sm font-medium mb-2">Average Daily Rate ($)</label>
-                            <input type="number" id="adr" class="w-full bg-aura-dark border border-aura-light-gray rounded-lg px-4 py-3 text-white focus:border-aura-gold focus:outline-none" placeholder="450" min="0">
-                        </div>
-                        
-                        <!-- Current Concierge Staff -->
-                        <div>
-                            <label for="concierge-count" class="block text-sm font-medium mb-2">Current Concierge Staff Count</label>
-                            <input type="number" id="concierge-count" class="w-full bg-aura-dark border border-aura-light-gray rounded-lg px-4 py-3 text-white focus:border-aura-gold focus:outline-none" placeholder="5" min="0">
-                        </div>
-                        
-                        <!-- Average Salary -->
-                        <div>
-                            <label for="concierge-salary" class="block text-sm font-medium mb-2">Average Concierge Salary ($)</label>
-                            <input type="number" id="concierge-salary" class="w-full bg-aura-dark border border-aura-light-gray rounded-lg px-4 py-3 text-white focus:border-aura-gold focus:outline-none" placeholder="45000" min="0">
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Results Section -->
-                <div id="roi-results" class="bg-aura-gray p-8 rounded-2xl border border-aura-gold hidden">
-                    <h3 class="text-2xl font-semibold mb-6">Your Projected Results</h3>
-                    
-                    <div class="space-y-4">
-                        <!-- Annual Stays -->
-                        <div class="flex justify-between items-center py-3 border-b border-aura-light-gray">
-                            <span class="text-gray-400">Annual Stays</span>
-                            <span id="annual-stays" class="text-xl font-semibold">0</span>
-                        </div>
-                        
-                        <!-- Current Service Cost -->
-                        <div class="flex justify-between items-center py-3 border-b border-aura-light-gray">
-                            <span class="text-gray-400">Current Service Cost</span>
-                            <span id="current-cost" class="text-xl font-semibold">$0</span>
-                        </div>
-                        
-                        <!-- AURA Cost -->
-                        <div class="flex justify-between items-center py-3 border-b border-aura-light-gray">
-                            <span class="text-gray-400">AURA Cost</span>
-                            <span id="aura-cost" class="text-xl font-semibold">$0</span>
-                        </div>
-                        
-                        <!-- Annual Savings -->
-                        <div class="flex justify-between items-center py-3 border-b border-aura-light-gray">
-                            <span class="text-gray-400">Annual Savings</span>
-                            <span id="annual-savings" class="text-xl font-semibold text-green-500">$0</span>
-                        </div>
-                        
-                        <!-- Additional Revenue -->
-                        <div class="flex justify-between items-center py-3 border-b border-aura-light-gray">
-                            <span class="text-gray-400">Additional Revenue (40% upsell increase)</span>
-                            <span id="additional-revenue" class="text-xl font-semibold text-green-500">$0</span>
-                        </div>
-                        
-                        <!-- Total ROI -->
-                        <div class="flex justify-between items-center py-4 bg-aura-dark rounded-lg px-4 mt-6">
-                            <span class="text-lg font-semibold">Total Annual ROI</span>
-                            <span id="total-roi" class="text-2xl font-bold text-aura-gold">$0</span>
-                        </div>
-                        
-                        <!-- Payback Period -->
-                        <div class="flex justify-between items-center py-4 bg-aura-dark rounded-lg px-4">
-                            <span class="text-lg font-semibold">Payback Period</span>
-                            <span id="payback-period" class="text-2xl font-bold text-aura-gold">0 months</span>
-                        </div>
-                    </div>
-                    
-                    <a href="#demo" class="w-full mt-8 bg-aura-gold text-aura-dark px-6 py-3 rounded-full font-semibold text-center block hover:bg-yellow-600 transition glow-hover">
-                        Get Detailed Report
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Testimonial -->
-            <div class="mt-12 text-center">
-                <p class="text-lg text-gray-300 italic">"AURA paid for itself in 6 weeks. The ROI is incredible."</p>
-                <p class="text-sm text-gray-500 mt-2">- GM, Four Seasons</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Pricing Section -->
-    <section class="py-20 bg-aura-dark" id="pricing">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display text-center mb-6">Simple, Transparent Pricing</h2>
-            <p class="text-xl text-gray-400 text-center mb-8 max-w-3xl mx-auto">No setup fees for the first 10 customers</p>
-            
-            <!-- Pricing Toggle -->
-            <div class="flex justify-center mb-12" id="pricing-toggle">
-                <div class="bg-aura-gray rounded-full p-1 flex">
-                    <button id="monthly-btn" class="px-6 py-2 rounded-full text-sm font-medium transition bg-aura-gold text-aura-dark">Monthly</button>
-                    <button id="annual-btn" class="px-6 py-2 rounded-full text-sm font-medium transition bg-transparent text-gray-400">Annual (Save 20%)</button>
-                </div>
-            </div>
-            
-            <!-- Pricing Cards -->
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Essential Plan -->
-                <div class="bg-aura-gray p-8 rounded-2xl border border-aura-light-gray hover:border-aura-gold transition">
-                    <h3 class="text-2xl font-semibold mb-2">AURA Essential</h3>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold" data-price="3">$3</span>
-                        <span class="text-gray-400" data-period>per guest stay</span>
-                    </div>
-                    
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">Basic preference tracking</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">Automated responses</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">Email/chat support</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">5 user accounts</span>
-                        </li>
-                    </ul>
-                    
-                    <a href="#demo" class="w-full block text-center bg-transparent border-2 border-aura-gold text-aura-gold px-6 py-3 rounded-full font-semibold hover:bg-aura-gold hover:text-aura-dark transition">
-                        Start Free Trial
-                    </a>
-                </div>
-                
-                <!-- Prime Plan (Most Popular) -->
-                <div class="bg-aura-gray p-8 rounded-2xl border-2 border-aura-gold relative transform scale-105">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-aura-gold text-aura-dark px-4 py-1 rounded-full text-sm font-semibold">
-                        Most Popular
-                    </div>
-                    
-                    <h3 class="text-2xl font-semibold mb-2">AURA Prime</h3>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold" data-price="10">$10</span>
-                        <span class="text-gray-400" data-period>per guest stay</span>
-                    </div>
-                    
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">Full preference learning</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">Predictive recommendations</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">WhatsApp + SMS</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">Unlimited users</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">Analytics dashboard</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">Priority support</span>
-                        </li>
-                    </ul>
-                    
-                    <a href="#demo" class="w-full block text-center bg-aura-gold text-aura-dark px-6 py-3 rounded-full font-semibold hover:bg-yellow-600 transition glow-hover">
-                        Book Demo
-                    </a>
-                </div>
-                
-                <!-- Signature Plan -->
-                <div class="bg-aura-gray p-8 rounded-2xl border border-aura-light-gray hover:border-aura-gold transition">
-                    <h3 class="text-2xl font-semibold mb-2">AURA Signature</h3>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold" data-price="25">$25</span>
-                        <span class="text-gray-400" data-period>per guest stay</span>
-                    </div>
-                    
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">White-glove AI service</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">Custom integrations</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">Dedicated success manager</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">API access</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">Custom training</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-300">SLA guarantee</span>
-                        </li>
-                    </ul>
-                    
-                    <a href="#demo" class="w-full block text-center bg-transparent border-2 border-aura-gold text-aura-gold px-6 py-3 rounded-full font-semibold hover:bg-aura-gold hover:text-aura-dark transition">
-                        Contact Sales
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Included in all plans -->
-            <div class="mt-12 text-center">
-                <p class="text-gray-400 mb-4">All plans include:</p>
-                <div class="flex flex-wrap justify-center gap-4 text-sm">
-                    <span class="flex items-center text-gray-300">
-                        <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        WhatsApp integration
-                    </span>
-                    <span class="flex items-center text-gray-300">
-                        <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        30-day trial
-                    </span>
-                    <span class="flex items-center text-gray-300">
-                        <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        No setup fee
-                    </span>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Social Proof Section -->
-    <section class="py-20 bg-aura-darker">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Logo Bar -->
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-display mb-8">Trusted by Leading Hospitality Brands</h2>
-                <div class="flex flex-wrap justify-center items-center gap-8 opacity-60">
-                    <div class="text-gray-400">Four Seasons</div>
-                    <div class="text-gray-400">Mandarin Oriental</div>
-                    <div class="text-gray-400">Rosewood Hotels</div>
-                    <div class="text-gray-400">Six Senses</div>
-                    <div class="text-gray-400">The Ritz-Carlton</div>
-                    <div class="text-gray-400">Belmond</div>
-                    <div class="text-gray-400">Aman Resorts</div>
-                    <div class="text-gray-400">Fairmont Hotels</div>
-                </div>
-            </div>
-            
-            <!-- Metrics Section -->
-            <div class="grid md:grid-cols-4 gap-8 mb-16">
-                <div class="text-center">
-                    <div class="text-5xl font-bold text-aura-gold mb-2" data-metric="2500000" data-suffix="+">0</div>
-                    <p class="text-gray-400">Guest Interactions</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl font-bold text-aura-gold mb-2" data-metric="97" data-suffix="%">0%</div>
-                    <p class="text-gray-400">Satisfaction Score</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl font-bold text-aura-gold mb-2" data-metric="45" data-suffix="%">0%</div>
-                    <p class="text-gray-400">Revenue Increase</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl font-bold text-aura-gold mb-2" data-metric="60" data-suffix="%">0%</div>
-                    <p class="text-gray-400">Cost Reduction</p>
-                </div>
-            </div>
-            
-            <!-- Testimonials Carousel -->
-            <div class="max-w-4xl mx-auto mb-16">
-                <div class="relative bg-aura-gray p-8 rounded-2xl border border-aura-light-gray">
-                    <!-- Testimonial 1 -->
-                    <div class="testimonial">
-                        <p class="text-2xl text-gray-300 mb-6 italic">"AURA transformed our guest experience overnight. The AI remembers every preference, anticipates needs we didn't even know existed, and our NPS scores have never been higher."</p>
-                        <div class="flex items-center">
-                            <div>
-                                <p class="font-semibold text-aura-gold">Michael Chen</p>
-                                <p class="text-gray-500">CEO, Mandarin Oriental Hotel Group</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 2 -->
-                    <div class="testimonial hidden">
-                        <p class="text-2xl text-gray-300 mb-6 italic">"Our guests think we hired 50 more concierges. In reality, AURA handles 80% of requests automatically while making each interaction feel deeply personal."</p>
-                        <div class="flex items-center">
-                            <div>
-                                <p class="font-semibold text-aura-gold">Sarah Williams</p>
-                                <p class="text-gray-500">GM, Rosewood Hotels</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 3 -->
-                    <div class="testimonial hidden">
-                        <p class="text-2xl text-gray-300 mb-6 italic">"The smartest investment we've made in years. AURA paid for itself in 6 weeks and continues to drive incremental revenue through intelligent upselling."</p>
-                        <div class="flex items-center">
-                            <div>
-                                <p class="font-semibold text-aura-gold">David Laurent</p>
-                                <p class="text-gray-500">COO, Six Senses Hotels Resorts Spas</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Navigation Dots -->
-                    <div class="flex justify-center space-x-2 mt-6">
-                        <button class="testimonial-dot w-2 h-2 rounded-full bg-aura-gold"></button>
-                        <button class="testimonial-dot w-2 h-2 rounded-full bg-gray-600"></button>
-                        <button class="testimonial-dot w-2 h-2 rounded-full bg-gray-600"></button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Case Study Preview Cards -->
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-aura-gray p-6 rounded-xl border border-aura-light-gray hover:border-aura-gold transition group">
-                    <h3 class="text-xl font-semibold mb-3">The Ritz-Carlton Success Story</h3>
-                    <p class="text-gray-400 mb-4">How The Ritz-Carlton increased NPS by 30 points in just 90 days with AURA's AI concierge</p>
-                    <a href="#" class="text-aura-gold font-semibold inline-flex items-center group-hover:text-yellow-600">
-                        Read Case Study 
-                        <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                </div>
-                
-                <div class="bg-aura-gray p-6 rounded-xl border border-aura-light-gray hover:border-aura-gold transition group">
-                    <h3 class="text-xl font-semibold mb-3">Belmond's 300% ROI</h3>
-                    <p class="text-gray-400 mb-4">Discover how Belmond achieved 300% ROI in 90 days through intelligent guest service automation</p>
-                    <a href="#" class="text-aura-gold font-semibold inline-flex items-center group-hover:text-yellow-600">
-                        Read Case Study 
-                        <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                </div>
-                
-                <div class="bg-aura-gray p-6 rounded-xl border border-aura-light-gray hover:border-aura-gold transition group">
-                    <h3 class="text-xl font-semibold mb-3">Four Seasons Scale Story</h3>
-                    <p class="text-gray-400 mb-4">From 10 to 100,000 personalized interactions: Four Seasons' journey with AURA</p>
-                    <a href="#" class="text-aura-gold font-semibold inline-flex items-center group-hover:text-yellow-600">
-                        Read Case Study 
-                        <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Technology & Integrations Section -->
-    <section class="py-20 bg-aura-dark" id="technology">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display text-center mb-6">Enterprise-Ready Technology</h2>
-            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">Seamlessly integrates with your existing tech stack</p>
-            
-            <!-- Integration Logos Grid -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-semibold text-center mb-8">Trusted Integrations</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    <!-- PMS Systems -->
-                    <div>
-                        <p class="text-sm text-gray-500 mb-4 text-center">Property Management</p>
-                        <div class="space-y-4">
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">Opera</div>
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">Protel</div>
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">Cloudbeds</div>
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">Mews</div>
-                        </div>
-                    </div>
-                    
-                    <!-- CRM Systems -->
-                    <div>
-                        <p class="text-sm text-gray-500 mb-4 text-center">CRM Systems</p>
-                        <div class="space-y-4">
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">Salesforce</div>
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">HubSpot</div>
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">Microsoft Dynamics</div>
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">Zoho CRM</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Communication Channels -->
-                    <div>
-                        <p class="text-sm text-gray-500 mb-4 text-center">Communication</p>
-                        <div class="space-y-4">
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">WhatsApp</div>
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">SMS/Text</div>
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">Email</div>
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">Messenger</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Payment Systems -->
-                    <div>
-                        <p class="text-sm text-gray-500 mb-4 text-center">Payments</p>
-                        <div class="space-y-4">
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">Stripe</div>
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">Square</div>
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">Adyen</div>
-                            <div class="bg-aura-gray p-4 rounded-lg text-center text-gray-400 border border-aura-light-gray">PayPal</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Security Badges -->
-            <div class="bg-aura-gray rounded-2xl p-8 mb-16">
-                <h3 class="text-2xl font-semibold text-center mb-8">Security & Compliance</h3>
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-aura-dark rounded-full flex items-center justify-center mx-auto mb-3">
-                            <svg class="w-10 h-10 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                            </svg>
-                        </div>
-                        <p class="text-sm font-semibold">SOC 2 Type II</p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-aura-dark rounded-full flex items-center justify-center mx-auto mb-3">
-                            <svg class="w-10 h-10 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                            </svg>
-                        </div>
-                        <p class="text-sm font-semibold">GDPR Compliant</p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-aura-dark rounded-full flex items-center justify-center mx-auto mb-3">
-                            <svg class="w-10 h-10 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
-                            </svg>
-                        </div>
-                        <p class="text-sm font-semibold">PCI DSS</p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-aura-dark rounded-full flex items-center justify-center mx-auto mb-3">
-                            <svg class="w-10 h-10 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                            </svg>
-                        </div>
-                        <p class="text-sm font-semibold">ISO 27001</p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-aura-dark rounded-full flex items-center justify-center mx-auto mb-3">
-                            <svg class="w-10 h-10 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
-                            </svg>
-                        </div>
-                        <p class="text-sm font-semibold">99.99% Uptime</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- API Section -->
-            <div class="bg-gradient-to-r from-aura-gray to-aura-light-gray rounded-2xl p-8 border border-aura-light-gray">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-4">Developer-Friendly API</h3>
-                        <ul class="space-y-3 mb-6">
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span class="text-gray-300">RESTful API for custom integrations</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span class="text-gray-300">Webhook support for real-time events</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span class="text-gray-300">SDKs for Python, Node.js, and Ruby</span>
-                            </li>
-                        </ul>
-                        <a href="#" class="inline-flex items-center text-aura-gold hover:text-yellow-600 font-semibold">
-                            View API Documentation 
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="bg-aura-dark rounded-lg p-6 font-mono text-sm">
-                        <div class="text-gray-500 mb-2">// Example API Request</div>
-                        <div class="text-green-400">POST /api/v1/guest/preferences</div>
-                        <div class="text-gray-300 mt-2">{</div>
-                        <div class="text-gray-300 ml-4">"guest_id": "12345",</div>
-                        <div class="text-gray-300 ml-4">"preferences": {</div>
-                        <div class="text-gray-300 ml-8">"room": "high floor",</div>
-                        <div class="text-gray-300 ml-8">"pillow": "memory foam",</div>
-                        <div class="text-gray-300 ml-8">"dietary": "gluten-free"</div>
-                        <div class="text-gray-300 ml-4">}</div>
-                        <div class="text-gray-300">}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- How AURA Actually Works Section -->
-    <section class="py-20 bg-aura-darker" id="how-it-works">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display text-center mb-6">The Intelligence Behind Every Interaction</h2>
-            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">See how AURA combines human expertise with AI to deliver flawless service at scale</p>
-            
-            <!-- Two-Brain Architecture -->
-            <div class="mb-20">
-                <h3 class="text-2xl font-semibold text-center mb-12">The Two-Brain Architecture</h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Left Brain - Memory Engine -->
-                    <div class="bg-aura-gray rounded-2xl p-8 border border-aura-light-gray relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-10">
-                            <svg viewBox="0 0 200 200" class="w-full h-full">
-                                <!-- Neural network visualization -->
-                                <circle cx="50" cy="50" r="5" class="neural-node" />
-                                <circle cx="150" cy="50" r="5" class="neural-node" />
-                                <circle cx="100" cy="100" r="8" class="neural-node" />
-                                <circle cx="50" cy="150" r="5" class="neural-node" />
-                                <circle cx="150" cy="150" r="5" class="neural-node" />
-                                <path d="M50,50 L100,100 L150,50 M50,150 L100,100 L150,150" class="neural-line" />
-                            </svg>
-                        </div>
-                        <div class="relative z-10">
-                            <h4 class="text-xl font-semibold mb-4 text-aura-gold">The Memory Engine</h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <span class="text-aura-gold mr-2">▸</span>
-                                    <div>
-                                        <span class="font-semibold">Guest DNA Profiles</span>
-                                        <p class="text-sm text-gray-400">Preferences, history, patterns</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-aura-gold mr-2">▸</span>
-                                    <div>
-                                        <span class="font-semibold">Contextual Knowledge Base</span>
-                                        <p class="text-sm text-gray-400">Property info, local data, policies</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-aura-gold mr-2">▸</span>
-                                    <div>
-                                        <span class="font-semibold">Learning Loop</span>
-                                        <p class="text-sm text-gray-400">Every interaction makes it smarter</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-aura-gold mr-2">▸</span>
-                                    <div>
-                                        <span class="font-semibold">Predictive Models</span>
-                                        <p class="text-sm text-gray-400">Anticipate needs before they're expressed</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Center - Augmentation Layer -->
-                    <div class="flex items-center justify-center">
-                        <div class="text-center">
-                            <div class="relative w-32 h-32 mx-auto mb-4">
-                                <div class="absolute inset-0 bg-aura-gold/20 rounded-full animate-pulse"></div>
-                                <div class="absolute inset-2 bg-aura-gold/30 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
-                                <div class="absolute inset-4 bg-aura-gold/40 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <svg class="w-16 h-16 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <h4 class="text-lg font-semibold text-aura-gold">The Augmentation Layer</h4>
-                            <p class="text-sm text-gray-400 mt-2">Real-time synthesis happens here</p>
-                            <div class="mt-4 text-xs text-gray-500">
-                                <p>Processing Time: <span class="text-aura-gold font-mono">300ms</span></p>
-                                <p>Accuracy: <span class="text-aura-gold font-mono">98.5%</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Right Brain - Communication Hub -->
-                    <div class="bg-aura-gray rounded-2xl p-8 border border-aura-light-gray relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-10">
-                            <svg viewBox="0 0 200 200" class="w-full h-full">
-                                <!-- Message flow visualization -->
-                                <rect x="40" y="40" width="120" height="20" rx="10" class="neural-node" />
-                                <rect x="40" y="80" width="120" height="20" rx="10" class="neural-node" style="animation-delay: 0.5s;" />
-                                <rect x="40" y="120" width="120" height="20" rx="10" class="neural-node" style="animation-delay: 1s;" />
-                                <rect x="40" y="160" width="120" height="20" rx="10" class="neural-node" style="animation-delay: 1.5s;" />
-                            </svg>
-                        </div>
-                        <div class="relative z-10">
-                            <h4 class="text-xl font-semibold mb-4 text-aura-gold">The Communication Hub</h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <span class="text-aura-gold mr-2">▸</span>
-                                    <div>
-                                        <span class="font-semibold">Omnichannel Gateway</span>
-                                        <p class="text-sm text-gray-400">WhatsApp, SMS, Web, Email</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-aura-gold mr-2">▸</span>
-                                    <div>
-                                        <span class="font-semibold">Intent Recognition</span>
-                                        <p class="text-sm text-gray-400">Understands what guests really want</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-aura-gold mr-2">▸</span>
-                                    <div>
-                                        <span class="font-semibold">Smart Routing</span>
-                                        <p class="text-sm text-gray-400">Knows when humans should step in</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-aura-gold mr-2">▸</span>
-                                    <div>
-                                        <span class="font-semibold">Response Orchestra</span>
-                                        <p class="text-sm text-gray-400">Coordinates perfect replies</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Live Interaction Flow -->
-            <div class="bg-aura-gray rounded-2xl p-8 mb-20 border border-aura-light-gray">
-                <h3 class="text-2xl font-semibold mb-8">Live Interaction Flow Demonstration</h3>
-                
-                <div class="mb-8 p-6 bg-aura-dark rounded-xl">
-                    <p class="text-lg mb-2">Guest Message:</p>
-                    <p class="text-xl text-aura-gold italic">"I need a quiet table for dinner tonight, my wife has a birthday"</p>
-                </div>
-                
-                <div class="space-y-6">
-                    <!-- Step 1 -->
-                    <div class="flow-step border-2 border-gray-600 rounded-lg p-6 transition-all duration-500">
-                        <div class="flex items-start justify-between">
-                            <div>
-                                <h4 class="text-lg font-semibold mb-2">Step 1: Message Analysis <span class="text-sm text-gray-400 font-normal">(0ms)</span></h4>
-                                <p class="text-gray-400">System identifies:</p>
-                                <ul class="text-sm text-gray-500 mt-2 space-y-1">
-                                    <li>• Request type: Restaurant reservation</li>
-                                    <li>• Special occasion: Birthday</li>
-                                    <li>• Preference: Quiet atmosphere</li>
-                                </ul>
-                            </div>
-                            <div class="text-3xl text-aura-gold">🔍</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 2 -->
-                    <div class="flow-step border-2 border-gray-600 rounded-lg p-6 transition-all duration-500">
-                        <div class="flex items-start justify-between">
-                            <div>
-                                <h4 class="text-lg font-semibold mb-2">Step 2: Memory Engine Activates <span class="text-sm text-gray-400 font-normal">(100ms)</span></h4>
-                                <p class="text-gray-400">Retrieves:</p>
-                                <ul class="text-sm text-gray-500 mt-2 space-y-1">
-                                    <li>• "Wife is vegetarian, prefers Italian"</li>
-                                    <li>• "Anniversary was last month - birthday is significant"</li>
-                                    <li>• "Previous birthday: ordered champagne"</li>
-                                </ul>
-                            </div>
-                            <div class="text-3xl text-aura-gold">🧠</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 3 -->
-                    <div class="flow-step border-2 border-gray-600 rounded-lg p-6 transition-all duration-500">
-                        <div class="flex items-start justify-between">
-                            <div>
-                                <h4 class="text-lg font-semibold mb-2">Step 3: Intelligence Assessment <span class="text-sm text-gray-400 font-normal">(200ms)</span></h4>
-                                <p class="text-gray-400">Evaluation:</p>
-                                <ul class="text-sm text-gray-500 mt-2 space-y-1">
-                                    <li>• Complexity Score: <span class="text-aura-gold">High - special occasion</span></li>
-                                    <li>• Human Flag: <span class="text-yellow-500">Optional enhancement opportunity</span></li>
-                                    <li>• Revenue Opportunity: <span class="text-green-500">Cake, champagne, room decoration</span></li>
-                                </ul>
-                            </div>
-                            <div class="text-3xl text-aura-gold">⚡</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 4 -->
-                    <div class="flow-step border-2 border-gray-600 rounded-lg p-6 transition-all duration-500">
-                        <div class="flex items-start justify-between">
-                            <div>
-                                <h4 class="text-lg font-semibold mb-2">Step 4: Human Enhancement Layer <span class="text-sm text-gray-400 font-normal">(optional)</span></h4>
-                                <p class="text-gray-400">Dashboard Alert: "Birthday opportunity for VIP guest"</p>
-                                <p class="text-sm text-gray-500 mt-2">Human adds: "The chef at Tuscany can prepare special menu"</p>
-                                <p class="text-sm text-green-500 mt-1">System incorporates human insight</p>
-                            </div>
-                            <div class="text-3xl text-aura-gold">👤</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 5 -->
-                    <div class="flow-step border-2 border-gray-600 rounded-lg p-6 transition-all duration-500">
-                        <div class="flex items-start justify-between">
-                            <div>
-                                <h4 class="text-lg font-semibold mb-2">Step 5: Perfect Response Delivered <span class="text-sm text-gray-400 font-normal">(2 seconds total)</span></h4>
-                                <div class="bg-aura-dark p-4 rounded-lg mt-3">
-                                    <p class="text-green-400 italic">"Happy to arrange that! I've reserved a quiet corner table at Tuscany for 8pm. Chef Marco will prepare a special vegetarian tasting menu for your wife's birthday. Shall I arrange for champagne and a celebration dessert?"</p>
-                                </div>
-                            </div>
-                            <div class="text-3xl text-aura-gold">✨</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="hero-buttons">
+                <a href="#pilot" class="btn btn-primary">Start Free Pilot</a>
+                <a href="#demo" class="btn btn-secondary">See 2-Min Demo</a>
             </div>
 
-            <!-- AI Hotel Concierge Architecture Diagram -->
-            <div class="mb-20">
-                <h3 class="text-2xl font-semibold mb-8">How AURA's Architecture Works</h3>
-                <div class="bg-aura-gray rounded-2xl overflow-hidden border border-aura-light-gray">
-                    <iframe 
-                        src="architecture.html" 
-                        class="w-full" 
-                        style="height: 800px; border: none;"
-                        title="AURA Architecture Diagram">
-                    </iframe>
-                </div>
-            </div>
-            
-            <!-- Human-in-the-Loop Dashboard -->
-            <div class="mb-20">
-                <h3 class="text-2xl font-semibold mb-8">The Human-in-the-Loop Dashboard</h3>
-                <div class="bg-aura-gray rounded-2xl overflow-hidden border border-aura-light-gray">
-                    <!-- Dashboard Header -->
-                    <div class="bg-aura-dark p-4 border-b border-aura-light-gray">
-                        <div class="flex items-center justify-between">
-                            <h4 class="text-lg font-semibold">AURA Command Center</h4>
-                            <div class="flex space-x-6 text-sm">
-                                <div>Active Guests: <span class="text-aura-gold font-bold dashboard-metric" data-min="200" data-max="300">247</span></div>
-                                <div>AI Handling: <span class="text-green-500 font-bold dashboard-metric" data-min="92" data-max="96" data-suffix="%">94%</span></div>
-                                <div>Response Time: <span class="text-aura-gold font-bold dashboard-metric" data-min="1.5" data-max="2.2" data-suffix="s" data-decimal>1.8s</span></div>
-                                <div>Revenue Today: <span class="text-green-500 font-bold">$<span class="dashboard-metric" data-min="12000" data-max="18000">14,250</span></span></div>
-                            </div>
-                        </div>
+            <!-- Simple WhatsApp Mockup -->
+            <div class="whatsapp-demo">
+                <div class="phone-mockup">
+                    <div class="chat-header">
+                        <span>📱</span>
+                        <strong>Hotel Concierge</strong>
                     </div>
-                    
-                    <!-- Dashboard Content -->
-                    <div class="grid md:grid-cols-3 gap-6 p-6">
-                        <!-- Active Conversations -->
-                        <div class="md:col-span-2">
-                            <h5 class="text-sm font-semibold text-gray-400 mb-4">Active Conversations</h5>
-                            <div class="grid gap-3">
-                                <!-- Conversation Card 1 -->
-                                <div class="dashboard-card rounded-lg p-4 border border-green-500/30">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="font-semibold">Sarah Chen - Room 412</span>
-                                        <span class="text-xs bg-green-500/20 text-green-500 px-2 py-1 rounded">AI Handling</span>
-                                    </div>
-                                    <p class="text-sm text-gray-400">"Can you book a spa appointment for 3pm?"</p>
-                                    <div class="flex items-center justify-between mt-2">
-                                        <span class="text-xs text-gray-500">Restaurant Booking</span>
-                                        <span class="text-xs text-gray-500">0:45</span>
-                                    </div>
-                                </div>
-                                
-                                <!-- Conversation Card 2 -->
-                                <div class="dashboard-card rounded-lg p-4 border border-yellow-500/30">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="font-semibold">Michael Roberts - VIP Suite</span>
-                                        <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">Monitor</span>
-                                    </div>
-                                    <p class="text-sm text-gray-400">"Planning proposal dinner, need perfect setup"</p>
-                                    <div class="flex items-center justify-between mt-2">
-                                        <span class="text-xs text-gray-500">Special Request</span>
-                                        <span class="text-xs text-gray-500">1:23</span>
-                                    </div>
-                                </div>
-                                
-                                <!-- Conversation Card 3 -->
-                                <div class="dashboard-card rounded-lg p-4 border border-red-500/30">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="font-semibold">Emma Thompson - Room 218</span>
-                                        <span class="text-xs bg-red-500/20 text-red-500 px-2 py-1 rounded">Needs Human</span>
-                                    </div>
-                                    <p class="text-sm text-gray-400">"Very disappointed with room service delay"</p>
-                                    <div class="flex items-center justify-between mt-2">
-                                        <span class="text-xs text-gray-500">Complaint</span>
-                                        <span class="text-xs text-gray-500">0:12</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Augmentation Tools -->
-                        <div>
-                            <h5 class="text-sm font-semibold text-gray-400 mb-4">Augmentation Tools</h5>
-                            <div class="space-y-4">
-                                <!-- Guest Profile -->
-                                <div class="bg-aura-dark rounded-lg p-4">
-                                    <h6 class="font-semibold mb-2">Guest Profile</h6>
-                                    <div class="text-sm space-y-1 text-gray-400">
-                                        <p>• 3rd stay this year</p>
-                                        <p>• Prefers Italian cuisine</p>
-                                        <p>• Wife: Vegetarian</p>
-                                        <p>• Avg spend: $1,200/stay</p>
-                                    </div>
-                                </div>
-                                
-                                <!-- Revenue Opportunities -->
-                                <div class="bg-aura-dark rounded-lg p-4">
-                                    <h6 class="font-semibold mb-2">Revenue Opportunities</h6>
-                                    <div class="text-sm space-y-2">
-                                        <div class="flex items-center justify-between">
-                                            <span class="text-gray-400">Room Upgrade</span>
-                                            <span class="text-green-500">+$200</span>
-                                        </div>
-                                        <div class="flex items-center justify-between">
-                                            <span class="text-gray-400">Spa Package</span>
-                                            <span class="text-green-500">+$350</span>
-                                        </div>
-                                        <div class="flex items-center justify-between">
-                                            <span class="text-gray-400">Wine Pairing</span>
-                                            <span class="text-green-500">+$150</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="chat-body">
+                        <div class="message guest">Hi, I need a quiet table for dinner tonight, my wife has a birthday</div>
+                        <div class="message bot">Happy to help! I see Mrs. Johnson prefers vegetarian options. I've reserved your favorite corner table at 7pm. Shall I arrange a birthday dessert?</div>
+                        <div class="message guest">Perfect, yes please!</div>
+                        <div class="message bot">All set! Corner table for 2 at 7pm with birthday celebration arranged. See you tonight!</div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Escalation Intelligence Matrix -->
-            <div class="mb-20">
-                <h3 class="text-2xl font-semibold mb-8">Escalation Intelligence Matrix</h3>
-                <div class="grid md:grid-cols-4 gap-6">
-                    <div class="bg-gradient-to-b from-green-900/20 to-aura-gray rounded-xl p-6 border border-green-500/30">
-                        <h4 class="text-lg font-semibold text-green-500 mb-4">Always AI</h4>
-                        <ul class="space-y-2 text-sm text-gray-400">
-                            <li>• Basic questions</li>
-                            <li>• Standard bookings</li>
-                            <li>• Known preferences</li>
-                            <li>• Routine requests</li>
-                            <li>• Information queries</li>
-                            <li>• Confirmations</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-gradient-to-b from-yellow-900/20 to-aura-gray rounded-xl p-6 border border-yellow-500/30">
-                        <h4 class="text-lg font-semibold text-yellow-500 mb-4">AI with Monitoring</h4>
-                        <ul class="space-y-2 text-sm text-gray-400">
-                            <li>• Complex logistics</li>
-                            <li>• Group coordination</li>
-                            <li>• Special dietary needs</li>
-                            <li>• Weather-dependent</li>
-                            <li>• Multi-day planning</li>
-                            <li>• Custom requests</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-gradient-to-b from-orange-900/20 to-aura-gray rounded-xl p-6 border border-orange-500/30">
-                        <h4 class="text-lg font-semibold text-orange-500 mb-4">Human Enhanced</h4>
-                        <ul class="space-y-2 text-sm text-gray-400">
-                            <li>• VIP guests</li>
-                            <li>• Complaints</li>
-                            <li>• Special occasions</li>
-                            <li>• Crisis situations</li>
-                            <li>• Unique experiences</li>
-                            <li>• High-value requests</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-gradient-to-b from-red-900/20 to-aura-gray rounded-xl p-6 border border-red-500/30">
-                        <h4 class="text-lg font-semibold text-red-500 mb-4">Always Human</h4>
-                        <ul class="space-y-2 text-sm text-gray-400">
-                            <li>• Medical emergencies</li>
-                            <li>• Security issues</li>
-                            <li>• Severe complaints</li>
-                            <li>• Legal matters</li>
-                            <li>• Safety concerns</li>
-                            <li>• PR situations</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Knowledge Architecture -->
-            <div class="mb-20">
-                <h3 class="text-2xl font-semibold mb-8">The Knowledge Architecture</h3>
-                <div class="max-w-3xl mx-auto">
-                    <div class="relative">
-                        <!-- Pyramid visualization -->
-                        <div class="space-y-2">
-                            <!-- Apex -->
-                            <div class="bg-gradient-to-r from-aura-gold to-yellow-600 p-6 rounded-t-lg text-center">
-                                <h4 class="text-lg font-semibold text-aura-dark">Predictive Insights</h4>
-                                <p class="text-sm text-aura-dark/80 mt-1">Next likely request • Upsell opportunities • Satisfaction predictors</p>
-                            </div>
-                            
-                            <!-- Guest Layer -->
-                            <div class="bg-aura-gray p-6 border-x-2 border-aura-light-gray">
-                                <h4 class="text-lg font-semibold text-aura-gold">Individual Intelligence</h4>
-                                <p class="text-sm text-gray-400 mt-1">Personal preferences • Past interactions • Family information • Spending patterns</p>
-                            </div>
-                            
-                            <!-- Property Layer -->
-                            <div class="bg-aura-gray p-6 border-x-2 border-aura-light-gray">
-                                <h4 class="text-lg font-semibold text-aura-gold">Your Specific Data</h4>
-                                <p class="text-sm text-gray-400 mt-1">Room inventory • Restaurant menus • Spa services • Policies • Staff expertise</p>
-                            </div>
-                            
-                            <!-- Foundation -->
-                            <div class="bg-aura-dark p-6 rounded-b-lg border-2 border-aura-light-gray">
-                                <h4 class="text-lg font-semibold">Universal Knowledge</h4>
-                                <p class="text-sm text-gray-400 mt-1">Local area information • General preference patterns • Industry best practices</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Scale Advantage Visualization -->
-            <div class="mb-20">
-                <h3 class="text-2xl font-semibold mb-8 text-center">The Scale Advantage</h3>
-                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    <!-- Traditional -->
-                    <div class="bg-red-900/10 rounded-2xl p-8 border border-red-500/30">
-                        <h4 class="text-xl font-semibold text-red-500 mb-6">Traditional Concierge</h4>
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-400">Staff to Guest Ratio</span>
-                                <span class="font-mono text-red-400">1:10</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-400">Memory Retention</span>
-                                <span class="font-mono text-red-400">Shift-based</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-400">Service Consistency</span>
-                                <span class="font-mono text-red-400">Variable</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-400">Data Capture</span>
-                                <span class="font-mono text-red-400">Minimal</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-400">Response Time</span>
-                                <span class="font-mono text-red-400">5-15 min</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-400">24/7 Availability</span>
-                                <span class="font-mono text-red-400">Expensive</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- AURA-Augmented -->
-                    <div class="bg-green-900/10 rounded-2xl p-8 border border-green-500/30">
-                        <h4 class="text-xl font-semibold text-green-500 mb-6">AURA-Augmented Team</h4>
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-400">Staff to Guest Ratio</span>
-                                <span class="font-mono text-green-400">1:150</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-400">Memory Retention</span>
-                                <span class="font-mono text-green-400">Forever</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-400">Service Consistency</span>
-                                <span class="font-mono text-green-400">100%</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-400">Data Capture</span>
-                                <span class="font-mono text-green-400">Everything</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-400">Response Time</span>
-                                <span class="font-mono text-green-400">2 seconds</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-400">24/7 Availability</span>
-                                <span class="font-mono text-green-400">Included</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Testimonial -->
-            <div class="text-center mb-12">
-                <blockquote class="text-2xl text-gray-300 italic max-w-4xl mx-auto">
-                    "Seeing the dashboard changed everything. We realized our team wasn't being replaced - they were becoming superhuman."
-                </blockquote>
-                <p class="text-aura-gold mt-4">- Director of Operations, St. Regis Hotels</p>
-            </div>
-            
-            <!-- CTA -->
-            <div class="text-center">
-                <p class="text-lg text-gray-400 mb-6">Want to see your property's data in this system?</p>
-                <a href="#demo" class="bg-aura-gold text-aura-dark px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-600 transition glow-hover inline-block">
-                    Book a Personalized Demo
-                </a>
             </div>
         </div>
     </section>
-    
-    <script src="script.js"></script>
+
+    <!-- Problem Statement -->
+    <section class="problems">
+        <div class="container">
+            <h2>Why Hotels Lose Guests</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">🧠</div>
+                    <h3>Your Concierge Can't Remember Everyone</h3>
+                    <p>Was that Mrs. Johnson who's allergic to shellfish or Mrs. Jackson? With 1000s of guests, it's impossible to track.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🕐</div>
+                    <h3>Different Shift, Different Service</h3>
+                    <p>Morning staff knows the regulars. Night shift starts from zero. Guests hate repeating themselves.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">💬</div>
+                    <h3>WhatsApp Messages Pile Up</h3>
+                    <p>Guests expect instant responses. Your team is overwhelmed. Important requests get buried.</p>
+                </div>
+            </div>
+            
+            <p class="text-center text-muted mt-4">You're losing guests because great service doesn't scale with spreadsheets and sticky notes</p>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="solution" id="how-it-works">
+        <div class="container">
+            <h2>Meet ABC - Your AI Team Member</h2>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <h3>CONNECTS TO WHATSAPP</h3>
+                    <p>Guest messages your hotel → ABC responds in seconds</p>
+                </div>
+                
+                <div class="arrow">→</div>
+                
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <h3>REMEMBERS EVERYTHING</h3>
+                    <p>Every preference, request, and conversation stored and recalled</p>
+                </div>
+                
+                <div class="arrow">→</div>
+                
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <h3>HUMAN TAKES OVER ANYTIME</h3>
+                    <p>Complex request? Staff jumps in with full context</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2>Simple But Powerful</h2>
+            
+            <div class="feature-columns">
+                <div class="what-it-does">
+                    <h3>✅ What ABC Does Today:</h3>
+                    <ul>
+                        <li><strong>Instant WhatsApp Responses</strong> - Guests get answers in under 30 seconds</li>
+                        <li><strong>Perfect Memory</strong> - Never forgets a guest preference or request</li>
+                        <li><strong>Human Handoff</strong> - Your team sees everything and jumps in when needed</li>
+                        <li><strong>Basic Requests</strong> - Handles FAQs, restaurant bookings, service requests</li>
+                        <li><strong>Guest Profiles</strong> - Builds a simple profile for each guest automatically</li>
+                    </ul>
+                </div>
+                
+                <div class="coming-soon">
+                    <h3>What We're Building Next:</h3>
+                    <ul>
+                        <li>Multi-language support (Q2 2025)</li>
+                        <li>Predictive recommendations (Q3 2025)</li>
+                        <li>Advanced analytics (Q3 2025)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Early Results from Our Pilot Hotels</h2>
+            
+            <div class="grid">
+                <div class="testimonial">
+                    <blockquote>
+                        "We're responding to guests 10x faster on WhatsApp. Our team loves having the conversation history."
+                    </blockquote>
+                    <cite>- Boutique Hotel, Miami (50 rooms)</cite>
+                </div>
+                
+                <div class="testimonial">
+                    <blockquote>
+                        "ABC handles 70% of our WhatsApp messages automatically. My concierge can focus on complex requests."
+                    </blockquote>
+                    <cite>- Resort Property, Tulum (120 rooms)</cite>
+                </div>
+                
+                <div class="testimonial">
+                    <blockquote>
+                        "Setup took 2 hours. We were live the same day."
+                    </blockquote>
+                    <cite>- City Hotel, NYC (200 rooms)</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="use-cases">
+        <div class="container">
+            <h2>Perfect For Properties That Want To...</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">💬</div>
+                    <h3>Handle WhatsApp at Scale</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✓ Stop missing guest messages</li>
+                        <li>✓ Respond 24/7 without night staff</li>
+                    </ul>
+                    <p class="text-center mt-3"><strong>Starting at $500/month</strong></p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">❤️</div>
+                    <h3>Remember Repeat Guests</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✓ Build loyalty with personalization</li>
+                        <li>✓ Never lose guest preferences</li>
+                    </ul>
+                    <p class="text-center mt-3"><strong>Starting at $500/month</strong></p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Give Staff Superpowers</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✓ New staff performs like veterans</li>
+                        <li>✓ Full context for every interaction</li>
+                    </ul>
+                    <p class="text-center mt-3"><strong>Starting at $500/month</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Details -->
+    <section class="technical">
+        <div class="container">
+            <h2>Under the Hood (For the Curious)</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="card mb-3">
+                    <h3>Your Property → ABC Setup (2 hours)</h3>
+                    <ol style="margin-left: 1.5rem;">
+                        <li>Connect WhatsApp Business API</li>
+                        <li>Upload property info (menus, services, FAQs)</li>
+                        <li>Train on your brand voice</li>
+                        <li>Go live with human oversight</li>
+                    </ol>
+                </div>
+                
+                <div class="card">
+                    <p>✓ Runs on secure cloud infrastructure (AWS/Google Cloud)</p>
+                    <p>✓ Your data stays yours - fully exportable</p>
+                    <p>✓ GDPR compliant, SOC 2 in progress</p>
+                    <p>✓ 99.9% uptime target</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Simple, Transparent Pricing</h2>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card featured">
+                    <div class="badge">PILOT PROGRAM</div>
+                    <h3>First 10 Customers</h3>
+                    <p class="price">$500<span>/month</span></p>
+                    <ul>
+                        <li>Up to 1,000 conversations/month</li>
+                        <li>1 WhatsApp number</li>
+                        <li>Basic customization</li>
+                        <li>Email support</li>
+                        <li>No setup fee</li>
+                        <li>Cancel anytime</li>
+                    </ul>
+                    <a href="#pilot" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Apply for Pilot</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Growth</h3>
+                    <p class="price">$2,000<span>/month</span></p>
+                    <p class="text-muted">Coming Soon</p>
+                    <ul>
+                        <li>Unlimited conversations</li>
+                        <li>Multiple channels</li>
+                        <li>Advanced customization</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <p class="price">Contact us</p>
+                    <ul>
+                        <li>Custom integrations</li>
+                        <li>Dedicated support</li>
+                        <li>SLA guarantees</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary" style="width: 100%; margin-top: 1.5rem;">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2>Real Questions, Honest Answers</h2>
+            
+            <div class="faq-container">
+                <details>
+                    <summary>What happens when the AI doesn't know something?</summary>
+                    <p>It immediately flags for human review. Your team gets an alert and can jump in. We believe in AI + Human collaboration, not replacement.</p>
+                </details>
+                
+                <details>
+                    <summary>How long does setup take?</summary>
+                    <p>2-4 hours. We do most of it for you. You just need to provide your property information and connect your WhatsApp Business account.</p>
+                </details>
+                
+                <details>
+                    <summary>Can we customize the responses?</summary>
+                    <p>Yes, we'll train it on your brand voice and policies. You can update responses anytime through the dashboard.</p>
+                </details>
+                
+                <details>
+                    <summary>What if we want to stop using it?</summary>
+                    <p>Export your data and cancel anytime. No lock-in, no questions asked. We believe in earning your business every month.</p>
+                </details>
+                
+                <details>
+                    <summary>Is this replacing our staff?</summary>
+                    <p>No. It's giving them superpowers. They handle the complex, AI handles the routine. Your staff will love having more time for meaningful guest interactions.</p>
+                </details>
+                
+                <details>
+                    <summary>What's the catch? Why so cheap?</summary>
+                    <p>We're in pilot mode and need feedback. Early customers get lifetime discounted pricing in exchange for helping us improve the product.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="pilot">
+        <div class="container">
+            <h2>Ready to Pilot ABC?</h2>
+            <p class="subtitle">We're selecting 10 properties for our pilot program.</p>
+            
+            <div class="cta-columns">
+                <div class="card">
+                    <h3>What you get:</h3>
+                    <ul style="list-style: none; padding: 0; text-align: left;">
+                        <li>✓ Full setup and training (we do the work)</li>
+                        <li>✓ 30-day money-back guarantee</li>
+                        <li>✓ Founder-level support</li>
+                        <li>✓ 50% off for life as an early adopter</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>What we need:</h3>
+                    <ul style="list-style: none; padding: 0; text-align: left;">
+                        <li>✓ 30+ room property</li>
+                        <li>✓ Active WhatsApp usage</li>
+                        <li>✓ Feedback on what works/doesn't</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <a href="mailto:pilot@abc.com?subject=Pilot Program Application" class="btn btn-primary" style="font-size: 1.25rem; padding: 1rem 2rem;">Apply for Pilot Program</a>
+            
+            <p class="alternative">Not ready? <a href="#demo">Watch a 2-minute demo</a> or <a href="mailto:hello@abc.com">Book a Call</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 ABC. All rights reserved.</p>
+            <nav class="footer-nav">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+                <a href="mailto:hello@abc.com">Contact</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuToggle?.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '100%';
+            navLinks.style.left = '0';
+            navLinks.style.right = '0';
+            navLinks.style.background = 'white';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.padding = '1rem';
+            navLinks.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Simple form handling
+        document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Track email clicks if analytics is added
+                console.log('Email link clicked:', link.href);
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, .testimonial, .pricing-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s, transform 0.6s';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
