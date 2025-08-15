@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC - AI Concierge Platform | Transform Hotel Guest Experience</title>
-    <meta name="description" content="AI-powered WhatsApp concierge that remembers every guest. Starting with smart automation, building toward the future of hospitality.">
+    <title>ABC - AI Concierge Platform for Luxury Hotels | Every Guest Deserves a Genius</title>
+    <meta name="description" content="Transform guest experience with AI-powered concierge service. Remember every preference, anticipate needs, increase revenue. 30-day free trial.">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,9 +19,7 @@
                         'abc-dark': '#0A0A0A',
                         'abc-darker': '#050505',
                         'abc-gray': '#1A1A1A',
-                        'abc-light-gray': '#2A2A2A',
-                        'abc-blue': '#1e3a8a',
-                        'abc-green': '#10b981'
+                        'abc-light-gray': '#2A2A2A'
                     },
                     fontFamily: {
                         'display': ['Playfair Display', 'serif'],
@@ -53,6 +51,11 @@
             50% { opacity: 1; }
         }
         
+        @keyframes flow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
         .gradient-gold {
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
         }
@@ -78,6 +81,27 @@
             transition: all 0.3s ease;
         }
         
+        .neural-line {
+            stroke: #FFD700;
+            stroke-width: 2;
+            fill: none;
+            opacity: 0.3;
+        }
+        
+        .neural-node {
+            fill: #FFD700;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        .data-flow {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: flow 3s linear infinite;
+        }
+        
         .dashboard-card {
             backdrop-filter: blur(10px);
             background: rgba(26, 26, 26, 0.8);
@@ -85,47 +109,6 @@
         
         .metric-card {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%);
-        }
-
-        .flow-step {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .flow-step:nth-child(1) { animation-delay: 0.1s; }
-        .flow-step:nth-child(2) { animation-delay: 0.2s; }
-        .flow-step:nth-child(3) { animation-delay: 0.3s; }
-        .flow-step:nth-child(4) { animation-delay: 0.4s; }
-        .flow-step:nth-child(5) { animation-delay: 0.5s; }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .vision-badge {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-        .current-badge {
-            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -142,11 +125,13 @@
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#how-it-works" class="text-gray-300 hover:text-abc-gold transition">How It Works</a>
-                    <a href="#architecture" class="text-gray-300 hover:text-abc-gold transition">Architecture</a>
+                    <a href="#product" class="text-gray-300 hover:text-abc-gold transition">Product</a>
+                    <a href="#hotels" class="text-gray-300 hover:text-abc-gold transition">For Hotels</a>
+                    <a href="#resorts" class="text-gray-300 hover:text-abc-gold transition">For Resorts</a>
+                    <a href="#agencies" class="text-gray-300 hover:text-abc-gold transition">For Agencies</a>
                     <a href="#pricing" class="text-gray-300 hover:text-abc-gold transition">Pricing</a>
-                    <a href="#faq" class="text-gray-300 hover:text-abc-gold transition">FAQ</a>
-                    <a href="#demo" class="bg-abc-gold text-abc-dark px-6 py-2 rounded-full font-semibold hover:bg-yellow-600 transition glow-hover">Book Demo</a>
+                    <a href="#resources" class="text-gray-300 hover:text-abc-gold transition">Resources</a>
+                    <a href="#demo" class="bg-abc-gold text-abc-dark px-6 py-2 rounded-full font-semibold hover:bg-yellow-600 transition glow-hover">Demo</a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
@@ -161,11 +146,13 @@
         <!-- Mobile Menu -->
         <div class="md:hidden hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#how-it-works" class="block px-3 py-2 text-gray-300 hover:text-abc-gold">How It Works</a>
-                <a href="#architecture" class="block px-3 py-2 text-gray-300 hover:text-abc-gold">Architecture</a>
+                <a href="#product" class="block px-3 py-2 text-gray-300 hover:text-abc-gold">Product</a>
+                <a href="#hotels" class="block px-3 py-2 text-gray-300 hover:text-abc-gold">For Hotels</a>
+                <a href="#resorts" class="block px-3 py-2 text-gray-300 hover:text-abc-gold">For Resorts</a>
+                <a href="#agencies" class="block px-3 py-2 text-gray-300 hover:text-abc-gold">For Agencies</a>
                 <a href="#pricing" class="block px-3 py-2 text-gray-300 hover:text-abc-gold">Pricing</a>
-                <a href="#faq" class="block px-3 py-2 text-gray-300 hover:text-abc-gold">FAQ</a>
-                <a href="#demo" class="block px-3 py-2 bg-abc-gold text-abc-dark rounded-full text-center font-semibold">Book Demo</a>
+                <a href="#resources" class="block px-3 py-2 text-gray-300 hover:text-abc-gold">Resources</a>
+                <a href="#demo" class="block px-3 py-2 bg-abc-gold text-abc-dark rounded-full text-center font-semibold">Demo</a>
             </div>
         </div>
     </nav>
@@ -186,19 +173,19 @@
                     <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                     </svg>
-                    WhatsApp Ready
+                    WhatsApp Integrated
                 </span>
                 <span class="text-sm text-gray-400 flex items-center">
                     <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                     </svg>
-                    2-Hour Setup
+                    SOC 2 Compliant
                 </span>
                 <span class="text-sm text-gray-400 flex items-center">
                     <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
                     </svg>
-                    Human + AI
+                    24/7 Support
                 </span>
             </div>
             
@@ -209,83 +196,1125 @@
             
             <!-- Subheadline -->
             <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto">
-                Start with smart WhatsApp automation today. Build toward the AI concierge of tomorrow.
+                AI-powered concierge service that remembers every preference, anticipates every need, and delivers personalized experiences at infinite scale
             </p>
             
             <!-- CTAs -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#demo" class="bg-abc-gold text-abc-dark px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-600 transition glow-hover">
-                    Start Pilot Program
+                    Book a Demo
                 </a>
-                <a href="#how-it-works" class="border-2 border-abc-gold text-abc-gold px-8 py-4 rounded-full font-semibold text-lg hover:bg-abc-gold hover:text-abc-dark transition">
-                    See How It Works
+                <a href="#roi-calculator" class="border-2 border-abc-gold text-abc-gold px-8 py-4 rounded-full font-semibold text-lg hover:bg-abc-gold hover:text-abc-dark transition">
+                    Calculate Your ROI
                 </a>
             </div>
-
-            <!-- Quick Stats -->
-            <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-                <div>
-                    <p class="text-3xl font-bold text-abc-gold">70%</p>
-                    <p class="text-sm text-gray-400">Messages Automated</p>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <!-- Problems Section -->
+    <section class="py-20 bg-abc-darker" id="problems">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-display text-center mb-16">The Challenge with Traditional Concierge Service</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Problem 1 -->
+                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray hover:border-abc-gold transition">
+                    <div class="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Memory Limitations</h3>
+                    <p class="text-gray-400">Guests expect personalization but concierges can't remember everyone's preferences, allergies, and special requests across thousands of interactions.</p>
                 </div>
-                <div>
-                    <p class="text-3xl font-bold text-abc-gold">< 30s</p>
-                    <p class="text-sm text-gray-400">Response Time</p>
+                
+                <!-- Problem 2 -->
+                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray hover:border-abc-gold transition">
+                    <div class="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Inconsistent Quality</h3>
+                    <p class="text-gray-400">Service quality varies dramatically with staff changes, training gaps, and shift rotations, leading to unpredictable guest experiences.</p>
                 </div>
-                <div>
-                    <p class="text-3xl font-bold text-abc-gold">24/7</p>
-                    <p class="text-sm text-gray-400">Always Available</p>
+                
+                <!-- Problem 3 -->
+                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray hover:border-abc-gold transition">
+                    <div class="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Scaling Challenges</h3>
+                    <p class="text-gray-400">Luxury service doesn't scale efficiently. Adding more concierges increases costs exponentially while service quality remains inconsistent.</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Problem/Solution Section -->
-    <section class="py-20 bg-abc-darker">
+    <!-- How ABC Works Section -->
+    <section class="py-20 bg-abc-dark" id="product">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display text-center mb-6">The Challenge</h2>
-            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">
-                Great service doesn't scale with spreadsheets and sticky notes
-            </p>
+            <h2 class="text-4xl font-display text-center mb-6">How ABC Works</h2>
+            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">Transform every guest interaction into a personalized experience with our AI-powered workflow</p>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Problem 1 -->
-                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray hover:border-abc-gold transition">
-                    <div class="text-4xl mb-4">🧠</div>
-                    <h3 class="text-xl font-semibold mb-4">Can't Remember Everyone</h3>
-                    <p class="text-gray-400">With thousands of guests, tracking preferences, allergies, and special occasions becomes impossible.</p>
-                </div>
+            <!-- Timeline -->
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-abc-gold to-transparent"></div>
                 
-                <!-- Problem 2 -->
-                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray hover:border-abc-gold transition">
-                    <div class="text-4xl mb-4">🕐</div>
-                    <h3 class="text-xl font-semibold mb-4">Knowledge Lost Between Shifts</h3>
-                    <p class="text-gray-400">Morning staff knows the regulars. Night shift starts from zero. Guests hate repeating themselves.</p>
-                </div>
-                
-                <!-- Problem 3 -->
-                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray hover:border-abc-gold transition">
-                    <div class="text-4xl mb-4">💬</div>
-                    <h3 class="text-xl font-semibold mb-4">WhatsApp Overwhelm</h3>
-                    <p class="text-gray-400">Guests expect instant responses. Your team is drowning in messages. Important requests get buried.</p>
+                <!-- Timeline Steps -->
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="relative flex items-center md:justify-between">
+                        <div class="md:w-5/12 md:text-right">
+                            <h3 class="text-2xl font-semibold mb-2">Guest Books</h3>
+                            <p class="text-gray-400">ABC instantly creates a personalized profile, capturing preferences and history</p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-abc-gold rounded-full hidden md:flex items-center justify-center">
+                            <span class="text-abc-dark font-bold">1</span>
+                        </div>
+                        <div class="md:w-5/12"></div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="relative flex items-center md:justify-between">
+                        <div class="md:w-5/12"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-abc-gold rounded-full hidden md:flex items-center justify-center">
+                            <span class="text-abc-dark font-bold">2</span>
+                        </div>
+                        <div class="md:w-5/12 md:text-left">
+                            <h3 class="text-2xl font-semibold mb-2">Pre-Arrival Magic</h3>
+                            <p class="text-gray-400">Proactive preferences and arrangements prepared before check-in</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="relative flex items-center md:justify-between">
+                        <div class="md:w-5/12 md:text-right">
+                            <h3 class="text-2xl font-semibold mb-2">During Stay Excellence</h3>
+                            <p class="text-gray-400">24/7 intelligent assistance via WhatsApp, SMS, or your preferred channel</p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-abc-gold rounded-full hidden md:flex items-center justify-center">
+                            <span class="text-abc-dark font-bold">3</span>
+                        </div>
+                        <div class="md:w-5/12"></div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="relative flex items-center md:justify-between">
+                        <div class="md:w-5/12"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-abc-gold rounded-full hidden md:flex items-center justify-center">
+                            <span class="text-abc-dark font-bold">4</span>
+                        </div>
+                        <div class="md:w-5/12 md:text-left">
+                            <h3 class="text-2xl font-semibold mb-2">Loyalty That Lasts</h3>
+                            <p class="text-gray-400">Relationship continues post-stay, building lifetime guest value</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Live Interaction Flow -->
-    <section class="py-20 bg-abc-dark" id="how-it-works">
+    
+    <!-- Core Capabilities Section -->
+    <section class="py-20 bg-abc-darker">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display text-center mb-6">See ABC in Action</h2>
-            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">
-                Watch how ABC transforms a simple request into exceptional service
-            </p>
+            <h2 class="text-4xl font-display text-center mb-6">Core Capabilities</h2>
+            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">Powered by advanced AI to deliver exceptional service at scale</p>
             
-            <div class="bg-abc-gray rounded-2xl p-8 border border-abc-light-gray">
-                <h3 class="text-2xl font-semibold mb-8">Live Interaction Flow</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Capability 1 -->
+                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray hover:border-abc-gold transition group">
+                    <div class="w-16 h-16 bg-abc-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-abc-gold/20 transition">
+                        <svg class="w-8 h-8 text-abc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Perpetual Memory</h3>
+                    <p class="text-gray-400">Never forgets a preference, allergy, or special request. Every interaction builds deeper understanding.</p>
+                </div>
+                
+                <!-- Capability 2 -->
+                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray hover:border-abc-gold transition group">
+                    <div class="w-16 h-16 bg-abc-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-abc-gold/20 transition">
+                        <svg class="w-8 h-8 text-abc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Predictive Service</h3>
+                    <p class="text-gray-400">Anticipates needs before they're expressed. Suggests experiences based on preferences and context.</p>
+                </div>
+                
+                <!-- Capability 3 -->
+                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray hover:border-abc-gold transition group">
+                    <div class="w-16 h-16 bg-abc-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-abc-gold/20 transition">
+                        <svg class="w-8 h-8 text-abc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Instant Response</h3>
+                    <p class="text-gray-400">2-minute response time, 24/7/365. Your guests never wait for exceptional service.</p>
+                </div>
+                
+                <!-- Capability 4 -->
+                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray hover:border-abc-gold transition group">
+                    <div class="w-16 h-16 bg-abc-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-abc-gold/20 transition">
+                        <svg class="w-8 h-8 text-abc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Revenue Intelligence</h3>
+                    <p class="text-gray-400">Identifies upsell opportunities intelligently, increasing revenue per guest by 45%.</p>
+                </div>
+                
+                <!-- Capability 5 -->
+                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray hover:border-abc-gold transition group">
+                    <div class="w-16 h-16 bg-abc-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-abc-gold/20 transition">
+                        <svg class="w-8 h-8 text-abc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Seamless Escalation</h3>
+                    <p class="text-gray-400">Human experts step in when needed, with full context and history at their fingertips.</p>
+                </div>
+                
+                <!-- Capability 6 -->
+                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray hover:border-abc-gold transition group">
+                    <div class="w-16 h-16 bg-abc-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-abc-gold/20 transition">
+                        <svg class="w-8 h-8 text-abc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Multi-language</h3>
+                    <p class="text-gray-400">Serves guests fluently in 50+ languages, ensuring everyone feels at home.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#features" class="text-abc-gold hover:text-yellow-600 font-semibold inline-flex items-center">
+                    See All Features 
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Customer Segments Section -->
+    <!-- ABC for Hotels -->
+    <section class="py-20 bg-abc-dark" id="hotels">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Content -->
+                <div>
+                    <h2 class="text-4xl font-display mb-6">ABC for Hotels</h2>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-abc-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">Reduce concierge costs by 60%</h3>
+                                <p class="text-gray-400">Automate routine requests while enhancing service quality</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-abc-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">Increase guest satisfaction by 40%</h3>
+                                <p class="text-gray-400">Deliver instant, personalized service 24/7</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-abc-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">Scale personalized service infinitely</h3>
+                                <p class="text-gray-400">Every guest gets VIP treatment, regardless of occupancy</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mini Case Study -->
+                    <div class="bg-abc-gray p-6 rounded-xl border border-abc-light-gray">
+                        <p class="text-abc-gold font-semibold mb-2">Success Story</p>
+                        <p class="text-lg mb-2">"The Savoy reduced service complaints by 70%"</p>
+                        <p class="text-gray-400 text-sm">Within 90 days of implementing ABC, guest satisfaction scores reached an all-time high.</p>
+                    </div>
+                    
+                    <a href="#demo" class="inline-flex items-center mt-8 bg-abc-gold text-abc-dark px-6 py-3 rounded-full font-semibold hover:bg-yellow-600 transition glow-hover">
+                        Learn More About Hotel Solutions
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Image Placeholder -->
+                <div class="relative h-96 bg-gradient-to-br from-abc-gray to-abc-light-gray rounded-2xl overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <p class="text-gray-500 text-lg">Luxury Hotel Lobby Image</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-abc-gold text-abc-dark px-3 py-1 rounded-full text-sm font-semibold">
+                        For Hotels
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ABC for Resorts -->
+    <section class="py-20 bg-abc-darker" id="resorts">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Image Placeholder (Left on this one) -->
+                <div class="relative h-96 bg-gradient-to-br from-abc-gray to-abc-light-gray rounded-2xl overflow-hidden order-2 md:order-1">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <p class="text-gray-500 text-lg">Beach Resort Image</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-abc-gold text-abc-dark px-3 py-1 rounded-full text-sm font-semibold">
+                        For Resorts
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div class="order-1 md:order-2">
+                    <h2 class="text-4xl font-display mb-6">ABC for Resorts</h2>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-abc-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">Coordinate complex itineraries effortlessly</h3>
+                                <p class="text-gray-400">Manage multi-day experiences and activities seamlessly</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-abc-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">Manage group experiences at scale</h3>
+                                <p class="text-gray-400">From intimate retreats to large conferences</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-abc-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">Increase activity bookings by 45%</h3>
+                                <p class="text-gray-400">Smart recommendations drive incremental revenue</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mini Case Study -->
+                    <div class="bg-abc-gray p-6 rounded-xl border border-abc-light-gray">
+                        <p class="text-abc-gold font-semibold mb-2">Success Story</p>
+                        <p class="text-lg mb-2">"Aman Resorts increased revenue per guest by $500"</p>
+                        <p class="text-gray-400 text-sm">ABC's intelligent upselling and activity recommendations transformed our guest experience.</p>
+                    </div>
+                    
+                    <a href="#demo" class="inline-flex items-center mt-8 bg-abc-gold text-abc-dark px-6 py-3 rounded-full font-semibold hover:bg-yellow-600 transition glow-hover">
+                        Explore Resort Features
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ABC for Travel Agencies -->
+    <section class="py-20 bg-abc-dark" id="agencies">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Content -->
+                <div>
+                    <h2 class="text-4xl font-display mb-6">ABC for Travel Agencies</h2>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-abc-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">24/7 traveler support worldwide</h3>
+                                <p class="text-gray-400">Your clients get instant help, anywhere, anytime</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-abc-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">Multi-property coordination</h3>
+                                <p class="text-gray-400">Seamless service across entire travel itineraries</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-abc-gold mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">Reduce support tickets by 80%</h3>
+                                <p class="text-gray-400">ABC handles routine requests automatically</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mini Case Study -->
+                    <div class="bg-abc-gray p-6 rounded-xl border border-abc-light-gray">
+                        <p class="text-abc-gold font-semibold mb-2">Success Story</p>
+                        <p class="text-lg mb-2">"Virtuoso agents save 10 hours per week"</p>
+                        <p class="text-gray-400 text-sm">ABC handles all routine client communications, letting agents focus on crafting exceptional journeys.</p>
+                    </div>
+                    
+                    <a href="#demo" class="inline-flex items-center mt-8 bg-abc-gold text-abc-dark px-6 py-3 rounded-full font-semibold hover:bg-yellow-600 transition glow-hover">
+                        Discover Agency Solutions
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Image Placeholder -->
+                <div class="relative h-96 bg-gradient-to-br from-abc-gray to-abc-light-gray rounded-2xl overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <p class="text-gray-500 text-lg">Luxury Travel Planning Image</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-abc-gold text-abc-dark px-3 py-1 rounded-full text-sm font-semibold">
+                        For Agencies
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ROI Calculator Section -->
+    <section class="py-20 bg-abc-darker" id="roi-calculator">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-display text-center mb-6">Calculate Your ABC ROI</h2>
+            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">See how much you could save and earn with ABC</p>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Input Section -->
+                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray">
+                    <h3 class="text-2xl font-semibold mb-6">Your Property Details</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Number of Rooms -->
+                        <div>
+                            <label for="rooms" class="block text-sm font-medium mb-2">Number of Rooms</label>
+                            <input type="number" id="rooms" class="w-full bg-abc-dark border border-abc-light-gray rounded-lg px-4 py-3 text-white focus:border-abc-gold focus:outline-none" placeholder="200" min="1">
+                        </div>
+                        
+                        <!-- Occupancy Rate -->
+                        <div>
+                            <label for="occupancy" class="block text-sm font-medium mb-2">Average Occupancy Rate (%)</label>
+                            <input type="number" id="occupancy" class="w-full bg-abc-dark border border-abc-light-gray rounded-lg px-4 py-3 text-white focus:border-abc-gold focus:outline-none" placeholder="75" min="0" max="100">
+                        </div>
+                        
+                        <!-- Average Daily Rate -->
+                        <div>
+                            <label for="adr" class="block text-sm font-medium mb-2">Average Daily Rate ($)</label>
+                            <input type="number" id="adr" class="w-full bg-abc-dark border border-abc-light-gray rounded-lg px-4 py-3 text-white focus:border-abc-gold focus:outline-none" placeholder="450" min="0">
+                        </div>
+                        
+                        <!-- Current Concierge Staff -->
+                        <div>
+                            <label for="concierge-count" class="block text-sm font-medium mb-2">Current Concierge Staff Count</label>
+                            <input type="number" id="concierge-count" class="w-full bg-abc-dark border border-abc-light-gray rounded-lg px-4 py-3 text-white focus:border-abc-gold focus:outline-none" placeholder="5" min="0">
+                        </div>
+                        
+                        <!-- Average Salary -->
+                        <div>
+                            <label for="concierge-salary" class="block text-sm font-medium mb-2">Average Concierge Salary ($)</label>
+                            <input type="number" id="concierge-salary" class="w-full bg-abc-dark border border-abc-light-gray rounded-lg px-4 py-3 text-white focus:border-abc-gold focus:outline-none" placeholder="45000" min="0">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Results Section -->
+                <div id="roi-results" class="bg-abc-gray p-8 rounded-2xl border border-abc-gold hidden">
+                    <h3 class="text-2xl font-semibold mb-6">Your Projected Results</h3>
+                    
+                    <div class="space-y-4">
+                        <!-- Annual Stays -->
+                        <div class="flex justify-between items-center py-3 border-b border-abc-light-gray">
+                            <span class="text-gray-400">Annual Stays</span>
+                            <span id="annual-stays" class="text-xl font-semibold">0</span>
+                        </div>
+                        
+                        <!-- Current Service Cost -->
+                        <div class="flex justify-between items-center py-3 border-b border-abc-light-gray">
+                            <span class="text-gray-400">Current Service Cost</span>
+                            <span id="current-cost" class="text-xl font-semibold">$0</span>
+                        </div>
+                        
+                        <!-- ABC Cost -->
+                        <div class="flex justify-between items-center py-3 border-b border-abc-light-gray">
+                            <span class="text-gray-400">ABC Cost</span>
+                            <span id="aura-cost" class="text-xl font-semibold">$0</span>
+                        </div>
+                        
+                        <!-- Annual Savings -->
+                        <div class="flex justify-between items-center py-3 border-b border-abc-light-gray">
+                            <span class="text-gray-400">Annual Savings</span>
+                            <span id="annual-savings" class="text-xl font-semibold text-green-500">$0</span>
+                        </div>
+                        
+                        <!-- Additional Revenue -->
+                        <div class="flex justify-between items-center py-3 border-b border-abc-light-gray">
+                            <span class="text-gray-400">Additional Revenue (40% upsell increase)</span>
+                            <span id="additional-revenue" class="text-xl font-semibold text-green-500">$0</span>
+                        </div>
+                        
+                        <!-- Total ROI -->
+                        <div class="flex justify-between items-center py-4 bg-abc-dark rounded-lg px-4 mt-6">
+                            <span class="text-lg font-semibold">Total Annual ROI</span>
+                            <span id="total-roi" class="text-2xl font-bold text-abc-gold">$0</span>
+                        </div>
+                        
+                        <!-- Payback Period -->
+                        <div class="flex justify-between items-center py-4 bg-abc-dark rounded-lg px-4">
+                            <span class="text-lg font-semibold">Payback Period</span>
+                            <span id="payback-period" class="text-2xl font-bold text-abc-gold">0 months</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#demo" class="w-full mt-8 bg-abc-gold text-abc-dark px-6 py-3 rounded-full font-semibold text-center block hover:bg-yellow-600 transition glow-hover">
+                        Get Detailed Report
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Testimonial -->
+            <div class="mt-12 text-center">
+                <p class="text-lg text-gray-300 italic">"ABC paid for itself in 6 weeks. The ROI is incredible."</p>
+                <p class="text-sm text-gray-500 mt-2">- GM, Four Seasons</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section class="py-20 bg-abc-dark" id="pricing">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-display text-center mb-6">Simple, Transparent Pricing</h2>
+            <p class="text-xl text-gray-400 text-center mb-8 max-w-3xl mx-auto">No setup fees for the first 10 customers</p>
+            
+            <!-- Pricing Toggle -->
+            <div class="flex justify-center mb-12" id="pricing-toggle">
+                <div class="bg-abc-gray rounded-full p-1 flex">
+                    <button id="monthly-btn" class="px-6 py-2 rounded-full text-sm font-medium transition bg-abc-gold text-abc-dark">Monthly</button>
+                    <button id="annual-btn" class="px-6 py-2 rounded-full text-sm font-medium transition bg-transparent text-gray-400">Annual (Save 20%)</button>
+                </div>
+            </div>
+            
+            <!-- Pricing Cards -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Essential Plan -->
+                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray hover:border-abc-gold transition">
+                    <h3 class="text-2xl font-semibold mb-2">ABC Essential</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold" data-price="3">$3</span>
+                        <span class="text-gray-400" data-period>per guest stay</span>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">Basic preference tracking</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">Automated responses</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">Email/chat support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">5 user accounts</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="#demo" class="w-full block text-center bg-transparent border-2 border-abc-gold text-abc-gold px-6 py-3 rounded-full font-semibold hover:bg-abc-gold hover:text-abc-dark transition">
+                        Start Free Trial
+                    </a>
+                </div>
+                
+                <!-- Prime Plan (Most Popular) -->
+                <div class="bg-abc-gray p-8 rounded-2xl border-2 border-abc-gold relative transform scale-105">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-abc-gold text-abc-dark px-4 py-1 rounded-full text-sm font-semibold">
+                        Most Popular
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mb-2">ABC Prime</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold" data-price="10">$10</span>
+                        <span class="text-gray-400" data-period>per guest stay</span>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">Full preference learning</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">Predictive recommendations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">WhatsApp + SMS</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">Unlimited users</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">Analytics dashboard</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">Priority support</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="#demo" class="w-full block text-center bg-abc-gold text-abc-dark px-6 py-3 rounded-full font-semibold hover:bg-yellow-600 transition glow-hover">
+                        Book Demo
+                    </a>
+                </div>
+                
+                <!-- Signature Plan -->
+                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray hover:border-abc-gold transition">
+                    <h3 class="text-2xl font-semibold mb-2">ABC Signature</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold" data-price="25">$25</span>
+                        <span class="text-gray-400" data-period>per guest stay</span>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">White-glove AI service</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">Custom integrations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">Dedicated success manager</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">API access</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">Custom training</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">SLA guarantee</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="#demo" class="w-full block text-center bg-transparent border-2 border-abc-gold text-abc-gold px-6 py-3 rounded-full font-semibold hover:bg-abc-gold hover:text-abc-dark transition">
+                        Contact Sales
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Included in all plans -->
+            <div class="mt-12 text-center">
+                <p class="text-gray-400 mb-4">All plans include:</p>
+                <div class="flex flex-wrap justify-center gap-4 text-sm">
+                    <span class="flex items-center text-gray-300">
+                        <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        WhatsApp integration
+                    </span>
+                    <span class="flex items-center text-gray-300">
+                        <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        30-day trial
+                    </span>
+                    <span class="flex items-center text-gray-300">
+                        <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        No setup fee
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Social Proof Section -->
+    <section class="py-20 bg-abc-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Logo Bar -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-display mb-8">Trusted by Leading Hospitality Brands</h2>
+                <div class="flex flex-wrap justify-center items-center gap-8 opacity-60">
+                    <div class="text-gray-400">Four Seasons</div>
+                    <div class="text-gray-400">Mandarin Oriental</div>
+                    <div class="text-gray-400">Rosewood Hotels</div>
+                    <div class="text-gray-400">Six Senses</div>
+                    <div class="text-gray-400">The Ritz-Carlton</div>
+                    <div class="text-gray-400">Belmond</div>
+                    <div class="text-gray-400">Aman Resorts</div>
+                    <div class="text-gray-400">Fairmont Hotels</div>
+                </div>
+            </div>
+            
+            <!-- Metrics Section -->
+            <div class="grid md:grid-cols-4 gap-8 mb-16">
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-abc-gold mb-2" data-metric="2500000" data-suffix="+">0</div>
+                    <p class="text-gray-400">Guest Interactions</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-abc-gold mb-2" data-metric="97" data-suffix="%">0%</div>
+                    <p class="text-gray-400">Satisfaction Score</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-abc-gold mb-2" data-metric="45" data-suffix="%">0%</div>
+                    <p class="text-gray-400">Revenue Increase</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-abc-gold mb-2" data-metric="60" data-suffix="%">0%</div>
+                    <p class="text-gray-400">Cost Reduction</p>
+                </div>
+            </div>
+            
+            <!-- Testimonials Carousel -->
+            <div class="max-w-4xl mx-auto mb-16">
+                <div class="relative bg-abc-gray p-8 rounded-2xl border border-abc-light-gray">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial">
+                        <p class="text-2xl text-gray-300 mb-6 italic">"ABC transformed our guest experience overnight. The AI remembers every preference, anticipates needs we didn't even know existed, and our NPS scores have never been higher."</p>
+                        <div class="flex items-center">
+                            <div>
+                                <p class="font-semibold text-abc-gold">Michael Chen</p>
+                                <p class="text-gray-500">CEO, Mandarin Oriental Hotel Group</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial hidden">
+                        <p class="text-2xl text-gray-300 mb-6 italic">"Our guests think we hired 50 more concierges. In reality, ABC handles 80% of requests automatically while making each interaction feel deeply personal."</p>
+                        <div class="flex items-center">
+                            <div>
+                                <p class="font-semibold text-abc-gold">Sarah Williams</p>
+                                <p class="text-gray-500">GM, Rosewood Hotels</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial hidden">
+                        <p class="text-2xl text-gray-300 mb-6 italic">"The smartest investment we've made in years. ABC paid for itself in 6 weeks and continues to drive incremental revenue through intelligent upselling."</p>
+                        <div class="flex items-center">
+                            <div>
+                                <p class="font-semibold text-abc-gold">David Laurent</p>
+                                <p class="text-gray-500">COO, Six Senses Hotels Resorts Spas</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Dots -->
+                    <div class="flex justify-center space-x-2 mt-6">
+                        <button class="testimonial-dot w-2 h-2 rounded-full bg-abc-gold"></button>
+                        <button class="testimonial-dot w-2 h-2 rounded-full bg-gray-600"></button>
+                        <button class="testimonial-dot w-2 h-2 rounded-full bg-gray-600"></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Case Study Preview Cards -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-abc-gray p-6 rounded-xl border border-abc-light-gray hover:border-abc-gold transition group">
+                    <h3 class="text-xl font-semibold mb-3">The Ritz-Carlton Success Story</h3>
+                    <p class="text-gray-400 mb-4">How The Ritz-Carlton increased NPS by 30 points in just 90 days with ABC's AI concierge</p>
+                    <a href="#" class="text-abc-gold font-semibold inline-flex items-center group-hover:text-yellow-600">
+                        Read Case Study 
+                        <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="bg-abc-gray p-6 rounded-xl border border-abc-light-gray hover:border-abc-gold transition group">
+                    <h3 class="text-xl font-semibold mb-3">Belmond's 300% ROI</h3>
+                    <p class="text-gray-400 mb-4">Discover how Belmond achieved 300% ROI in 90 days through intelligent guest service automation</p>
+                    <a href="#" class="text-abc-gold font-semibold inline-flex items-center group-hover:text-yellow-600">
+                        Read Case Study 
+                        <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="bg-abc-gray p-6 rounded-xl border border-abc-light-gray hover:border-abc-gold transition group">
+                    <h3 class="text-xl font-semibold mb-3">Four Seasons Scale Story</h3>
+                    <p class="text-gray-400 mb-4">From 10 to 100,000 personalized interactions: Four Seasons' journey with ABC</p>
+                    <a href="#" class="text-abc-gold font-semibold inline-flex items-center group-hover:text-yellow-600">
+                        Read Case Study 
+                        <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Technology & Integrations Section -->
+    <section class="py-20 bg-abc-dark" id="technology">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-display text-center mb-6">Enterprise-Ready Technology</h2>
+            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">Seamlessly integrates with your existing tech stack</p>
+            
+            <!-- Integration Logos Grid -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-center mb-8">Trusted Integrations</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <!-- PMS Systems -->
+                    <div>
+                        <p class="text-sm text-gray-500 mb-4 text-center">Property Management</p>
+                        <div class="space-y-4">
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">Opera</div>
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">Protel</div>
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">Cloudbeds</div>
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">Mews</div>
+                        </div>
+                    </div>
+                    
+                    <!-- CRM Systems -->
+                    <div>
+                        <p class="text-sm text-gray-500 mb-4 text-center">CRM Systems</p>
+                        <div class="space-y-4">
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">Salesforce</div>
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">HubSpot</div>
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">Microsoft Dynamics</div>
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">Zoho CRM</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Communication Channels -->
+                    <div>
+                        <p class="text-sm text-gray-500 mb-4 text-center">Communication</p>
+                        <div class="space-y-4">
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">WhatsApp</div>
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">SMS/Text</div>
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">Email</div>
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">Messenger</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Systems -->
+                    <div>
+                        <p class="text-sm text-gray-500 mb-4 text-center">Payments</p>
+                        <div class="space-y-4">
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">Stripe</div>
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">Square</div>
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">Adyen</div>
+                            <div class="bg-abc-gray p-4 rounded-lg text-center text-gray-400 border border-abc-light-gray">PayPal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Security Badges -->
+            <div class="bg-abc-gray rounded-2xl p-8 mb-16">
+                <h3 class="text-2xl font-semibold text-center mb-8">Security & Compliance</h3>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-abc-dark rounded-full flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-10 h-10 text-abc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm font-semibold">SOC 2 Type II</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-abc-dark rounded-full flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-10 h-10 text-abc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm font-semibold">GDPR Compliant</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-abc-dark rounded-full flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-10 h-10 text-abc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm font-semibold">PCI DSS</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-abc-dark rounded-full flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-10 h-10 text-abc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm font-semibold">ISO 27001</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-abc-dark rounded-full flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-10 h-10 text-abc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm font-semibold">99.99% Uptime</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- API Section -->
+            <div class="bg-gradient-to-r from-abc-gray to-abc-light-gray rounded-2xl p-8 border border-abc-light-gray">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4">Developer-Friendly API</h3>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-gray-300">RESTful API for custom integrations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-gray-300">Webhook support for real-time events</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-gray-300">SDKs for Python, Node.js, and Ruby</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="inline-flex items-center text-abc-gold hover:text-yellow-600 font-semibold">
+                            View API Documentation 
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="bg-abc-dark rounded-lg p-6 font-mono text-sm">
+                        <div class="text-gray-500 mb-2">// Example API Request</div>
+                        <div class="text-green-400">POST /api/v1/guest/preferences</div>
+                        <div class="text-gray-300 mt-2">{</div>
+                        <div class="text-gray-300 ml-4">"guest_id": "12345",</div>
+                        <div class="text-gray-300 ml-4">"preferences": {</div>
+                        <div class="text-gray-300 ml-8">"room": "high floor",</div>
+                        <div class="text-gray-300 ml-8">"pillow": "memory foam",</div>
+                        <div class="text-gray-300 ml-8">"dietary": "gluten-free"</div>
+                        <div class="text-gray-300 ml-4">}</div>
+                        <div class="text-gray-300">}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How ABC Actually Works Section -->
+    <section class="py-20 bg-abc-darker" id="how-it-works">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-display text-center mb-6">The Intelligence Behind Every Interaction</h2>
+            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">See how ABC combines human expertise with AI to deliver flawless service at scale</p>
+            
+            <!-- Two-Brain Architecture -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-semibold text-center mb-12">The Two-Brain Architecture</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Left Brain - Memory Engine -->
+                    <div class="bg-abc-gray rounded-2xl p-8 border border-abc-light-gray relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-10">
+                            <svg viewBox="0 0 200 200" class="w-full h-full">
+                                <!-- Neural network visualization -->
+                                <circle cx="50" cy="50" r="5" class="neural-node" />
+                                <circle cx="150" cy="50" r="5" class="neural-node" />
+                                <circle cx="100" cy="100" r="8" class="neural-node" />
+                                <circle cx="50" cy="150" r="5" class="neural-node" />
+                                <circle cx="150" cy="150" r="5" class="neural-node" />
+                                <path d="M50,50 L100,100 L150,50 M50,150 L100,100 L150,150" class="neural-line" />
+                            </svg>
+                        </div>
+                        <div class="relative z-10">
+                            <h4 class="text-xl font-semibold mb-4 text-abc-gold">The Memory Engine</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-abc-gold mr-2">▸</span>
+                                    <div>
+                                        <span class="font-semibold">Guest DNA Profiles</span>
+                                        <p class="text-sm text-gray-400">Preferences, history, patterns</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-abc-gold mr-2">▸</span>
+                                    <div>
+                                        <span class="font-semibold">Contextual Knowledge Base</span>
+                                        <p class="text-sm text-gray-400">Property info, local data, policies</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-abc-gold mr-2">▸</span>
+                                    <div>
+                                        <span class="font-semibold">Learning Loop</span>
+                                        <p class="text-sm text-gray-400">Every interaction makes it smarter</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-abc-gold mr-2">▸</span>
+                                    <div>
+                                        <span class="font-semibold">Predictive Models</span>
+                                        <p class="text-sm text-gray-400">Anticipate needs before they're expressed</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Center - Augmentation Layer -->
+                    <div class="flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="relative w-32 h-32 mx-auto mb-4">
+                                <div class="absolute inset-0 bg-abc-gold/20 rounded-full animate-pulse"></div>
+                                <div class="absolute inset-2 bg-abc-gold/30 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                                <div class="absolute inset-4 bg-abc-gold/40 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <svg class="w-16 h-16 text-abc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h4 class="text-lg font-semibold text-abc-gold">The Augmentation Layer</h4>
+                            <p class="text-sm text-gray-400 mt-2">Real-time synthesis happens here</p>
+                            <div class="mt-4 text-xs text-gray-500">
+                                <p>Processing Time: <span class="text-abc-gold font-mono">300ms</span></p>
+                                <p>Accuracy: <span class="text-abc-gold font-mono">98.5%</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Brain - Communication Hub -->
+                    <div class="bg-abc-gray rounded-2xl p-8 border border-abc-light-gray relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-10">
+                            <svg viewBox="0 0 200 200" class="w-full h-full">
+                                <!-- Message flow visualization -->
+                                <rect x="40" y="40" width="120" height="20" rx="10" class="neural-node" />
+                                <rect x="40" y="80" width="120" height="20" rx="10" class="neural-node" style="animation-delay: 0.5s;" />
+                                <rect x="40" y="120" width="120" height="20" rx="10" class="neural-node" style="animation-delay: 1s;" />
+                                <rect x="40" y="160" width="120" height="20" rx="10" class="neural-node" style="animation-delay: 1.5s;" />
+                            </svg>
+                        </div>
+                        <div class="relative z-10">
+                            <h4 class="text-xl font-semibold mb-4 text-abc-gold">The Communication Hub</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-abc-gold mr-2">▸</span>
+                                    <div>
+                                        <span class="font-semibold">Omnichannel Gateway</span>
+                                        <p class="text-sm text-gray-400">WhatsApp, SMS, Web, Email</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-abc-gold mr-2">▸</span>
+                                    <div>
+                                        <span class="font-semibold">Intent Recognition</span>
+                                        <p class="text-sm text-gray-400">Understands what guests really want</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-abc-gold mr-2">▸</span>
+                                    <div>
+                                        <span class="font-semibold">Smart Routing</span>
+                                        <p class="text-sm text-gray-400">Knows when humans should step in</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-abc-gold mr-2">▸</span>
+                                    <div>
+                                        <span class="font-semibold">Response Orchestra</span>
+                                        <p class="text-sm text-gray-400">Coordinates perfect replies</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Live Interaction Flow -->
+            <div class="bg-abc-gray rounded-2xl p-8 mb-20 border border-abc-light-gray">
+                <h3 class="text-2xl font-semibold mb-8">Live Interaction Flow Demonstration</h3>
                 
                 <div class="mb-8 p-6 bg-abc-dark rounded-xl">
-                    <p class="text-lg mb-2">Guest Message via WhatsApp:</p>
+                    <p class="text-lg mb-2">Guest Message:</p>
                     <p class="text-xl text-abc-gold italic">"I need a quiet table for dinner tonight, my wife has a birthday"</p>
                 </div>
                 
@@ -294,8 +1323,8 @@
                     <div class="flow-step border-2 border-gray-600 rounded-lg p-6 transition-all duration-500">
                         <div class="flex items-start justify-between">
                             <div>
-                                <h4 class="text-lg font-semibold mb-2">Step 1: Instant Analysis <span class="text-sm text-gray-400 font-normal">(< 1 second)</span></h4>
-                                <p class="text-gray-400">ABC identifies:</p>
+                                <h4 class="text-lg font-semibold mb-2">Step 1: Message Analysis <span class="text-sm text-gray-400 font-normal">(0ms)</span></h4>
+                                <p class="text-gray-400">System identifies:</p>
                                 <ul class="text-sm text-gray-500 mt-2 space-y-1">
                                     <li>• Request type: Restaurant reservation</li>
                                     <li>• Special occasion: Birthday</li>
@@ -310,11 +1339,11 @@
                     <div class="flow-step border-2 border-gray-600 rounded-lg p-6 transition-all duration-500">
                         <div class="flex items-start justify-between">
                             <div>
-                                <h4 class="text-lg font-semibold mb-2">Step 2: Memory Activation <span class="text-sm text-gray-400 font-normal">(instant)</span></h4>
-                                <p class="text-gray-400">Retrieves guest history:</p>
+                                <h4 class="text-lg font-semibold mb-2">Step 2: Memory Engine Activates <span class="text-sm text-gray-400 font-normal">(100ms)</span></h4>
+                                <p class="text-gray-400">Retrieves:</p>
                                 <ul class="text-sm text-gray-500 mt-2 space-y-1">
                                     <li>• "Wife is vegetarian, prefers Italian"</li>
-                                    <li>• "Regular guest - Room 412"</li>
+                                    <li>• "Anniversary was last month - birthday is significant"</li>
                                     <li>• "Previous birthday: ordered champagne"</li>
                                 </ul>
                             </div>
@@ -326,12 +1355,12 @@
                     <div class="flow-step border-2 border-gray-600 rounded-lg p-6 transition-all duration-500">
                         <div class="flex items-start justify-between">
                             <div>
-                                <h4 class="text-lg font-semibold mb-2">Step 3: Smart Routing <span class="text-sm text-gray-400 font-normal">(if needed)</span></h4>
-                                <p class="text-gray-400">Decision engine:</p>
+                                <h4 class="text-lg font-semibold mb-2">Step 3: Intelligence Assessment <span class="text-sm text-gray-400 font-normal">(200ms)</span></h4>
+                                <p class="text-gray-400">Evaluation:</p>
                                 <ul class="text-sm text-gray-500 mt-2 space-y-1">
-                                    <li>• Complexity: <span class="text-abc-gold">Special occasion - flag for human review</span></li>
-                                    <li>• Staff alert: <span class="text-yellow-500">"VIP birthday opportunity"</span></li>
-                                    <li>• Revenue opportunity: <span class="text-green-500">Upsell potential identified</span></li>
+                                    <li>• Complexity Score: <span class="text-abc-gold">High - special occasion</span></li>
+                                    <li>• Human Flag: <span class="text-yellow-500">Optional enhancement opportunity</span></li>
+                                    <li>• Revenue Opportunity: <span class="text-green-500">Cake, champagne, room decoration</span></li>
                                 </ul>
                             </div>
                             <div class="text-3xl text-abc-gold">⚡</div>
@@ -342,10 +1371,10 @@
                     <div class="flow-step border-2 border-gray-600 rounded-lg p-6 transition-all duration-500">
                         <div class="flex items-start justify-between">
                             <div>
-                                <h4 class="text-lg font-semibold mb-2">Step 4: Human Enhancement <span class="text-sm text-gray-400 font-normal">(optional)</span></h4>
-                                <p class="text-gray-400">Staff sees full context and can add:</p>
-                                <p class="text-sm text-gray-500 mt-2">"The chef at Tuscany can prepare special menu"</p>
-                                <p class="text-sm text-green-500 mt-1">Human expertise + AI memory = Perfect service</p>
+                                <h4 class="text-lg font-semibold mb-2">Step 4: Human Enhancement Layer <span class="text-sm text-gray-400 font-normal">(optional)</span></h4>
+                                <p class="text-gray-400">Dashboard Alert: "Birthday opportunity for VIP guest"</p>
+                                <p class="text-sm text-gray-500 mt-2">Human adds: "The chef at Tuscany can prepare special menu"</p>
+                                <p class="text-sm text-green-500 mt-1">System incorporates human insight</p>
                             </div>
                             <div class="text-3xl text-abc-gold">👤</div>
                         </div>
@@ -355,7 +1384,7 @@
                     <div class="flow-step border-2 border-gray-600 rounded-lg p-6 transition-all duration-500">
                         <div class="flex items-start justify-between">
                             <div>
-                                <h4 class="text-lg font-semibold mb-2">Step 5: Perfect Response <span class="text-sm text-gray-400 font-normal">(< 30 seconds total)</span></h4>
+                                <h4 class="text-lg font-semibold mb-2">Step 5: Perfect Response Delivered <span class="text-sm text-gray-400 font-normal">(2 seconds total)</span></h4>
                                 <div class="bg-abc-dark p-4 rounded-lg mt-3">
                                     <p class="text-green-400 italic">"Happy to arrange that! I've reserved a quiet corner table at Tuscany for 8pm. Chef Marco will prepare a special vegetarian tasting menu for your wife's birthday. Shall I arrange for champagne and a celebration dessert?"</p>
                                 </div>
@@ -365,491 +1394,298 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Simple Architecture Visualization -->
-    <section class="py-20 bg-abc-darker" id="architecture">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display text-center mb-6">How ABC's Architecture Works</h2>
-            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">
-                Simple today, sophisticated tomorrow
-            </p>
-
-            <div class="bg-abc-gray rounded-2xl p-8 border border-abc-light-gray">
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Input Layer -->
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-abc-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-3xl">💬</span>
+            <!-- AI Hotel Concierge Architecture Diagram -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-semibold mb-8">How ABC's Architecture Works</h3>
+                <div class="bg-abc-gray rounded-2xl overflow-hidden border border-abc-light-gray">
+                    <iframe 
+                        src="architecture.html" 
+                        class="w-full" 
+                        style="height: 800px; border: none;"
+                        title="ABC Architecture Diagram">
+                    </iframe>
+                </div>
+            </div>
+            
+            <!-- Human-in-the-Loop Dashboard -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-semibold mb-8">The Human-in-the-Loop Dashboard</h3>
+                <div class="bg-abc-gray rounded-2xl overflow-hidden border border-abc-light-gray">
+                    <!-- Dashboard Header -->
+                    <div class="bg-abc-dark p-4 border-b border-abc-light-gray">
+                        <div class="flex items-center justify-between">
+                            <h4 class="text-lg font-semibold">ABC Command Center</h4>
+                            <div class="flex space-x-6 text-sm">
+                                <div>Active Guests: <span class="text-abc-gold font-bold dashboard-metric" data-min="200" data-max="300">247</span></div>
+                                <div>AI Handling: <span class="text-green-500 font-bold dashboard-metric" data-min="92" data-max="96" data-suffix="%">94%</span></div>
+                                <div>Response Time: <span class="text-abc-gold font-bold dashboard-metric" data-min="1.5" data-max="2.2" data-suffix="s" data-decimal>1.8s</span></div>
+                                <div>Revenue Today: <span class="text-green-500 font-bold">$<span class="dashboard-metric" data-min="12000" data-max="18000">14,250</span></span></div>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">Guest Channels</h3>
-                        <p class="text-gray-400 text-sm">WhatsApp, SMS, Email</p>
-                        <div class="mt-4 text-abc-gold text-3xl">↓</div>
                     </div>
-
-                    <!-- Processing Layer -->
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-abc-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-3xl">🧠</span>
+                    
+                    <!-- Dashboard Content -->
+                    <div class="grid md:grid-cols-3 gap-6 p-6">
+                        <!-- Active Conversations -->
+                        <div class="md:col-span-2">
+                            <h5 class="text-sm font-semibold text-gray-400 mb-4">Active Conversations</h5>
+                            <div class="grid gap-3">
+                                <!-- Conversation Card 1 -->
+                                <div class="dashboard-card rounded-lg p-4 border border-green-500/30">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="font-semibold">Sarah Chen - Room 412</span>
+                                        <span class="text-xs bg-green-500/20 text-green-500 px-2 py-1 rounded">AI Handling</span>
+                                    </div>
+                                    <p class="text-sm text-gray-400">"Can you book a spa appointment for 3pm?"</p>
+                                    <div class="flex items-center justify-between mt-2">
+                                        <span class="text-xs text-gray-500">Restaurant Booking</span>
+                                        <span class="text-xs text-gray-500">0:45</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Conversation Card 2 -->
+                                <div class="dashboard-card rounded-lg p-4 border border-yellow-500/30">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="font-semibold">Michael Roberts - VIP Suite</span>
+                                        <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">Monitor</span>
+                                    </div>
+                                    <p class="text-sm text-gray-400">"Planning proposal dinner, need perfect setup"</p>
+                                    <div class="flex items-center justify-between mt-2">
+                                        <span class="text-xs text-gray-500">Special Request</span>
+                                        <span class="text-xs text-gray-500">1:23</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Conversation Card 3 -->
+                                <div class="dashboard-card rounded-lg p-4 border border-red-500/30">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="font-semibold">Emma Thompson - Room 218</span>
+                                        <span class="text-xs bg-red-500/20 text-red-500 px-2 py-1 rounded">Needs Human</span>
+                                    </div>
+                                    <p class="text-sm text-gray-400">"Very disappointed with room service delay"</p>
+                                    <div class="flex items-center justify-between mt-2">
+                                        <span class="text-xs text-gray-500">Complaint</span>
+                                        <span class="text-xs text-gray-500">0:12</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">ABC Brain</h3>
-                        <p class="text-gray-400 text-sm">Memory + Intelligence + Human Insight</p>
-                        <div class="mt-4 text-abc-gold text-3xl">↓</div>
-                    </div>
-
-                    <!-- Output Layer -->
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-abc-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-3xl">✨</span>
+                        
+                        <!-- Augmentation Tools -->
+                        <div>
+                            <h5 class="text-sm font-semibold text-gray-400 mb-4">Augmentation Tools</h5>
+                            <div class="space-y-4">
+                                <!-- Guest Profile -->
+                                <div class="bg-abc-dark rounded-lg p-4">
+                                    <h6 class="font-semibold mb-2">Guest Profile</h6>
+                                    <div class="text-sm space-y-1 text-gray-400">
+                                        <p>• 3rd stay this year</p>
+                                        <p>• Prefers Italian cuisine</p>
+                                        <p>• Wife: Vegetarian</p>
+                                        <p>• Avg spend: $1,200/stay</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Revenue Opportunities -->
+                                <div class="bg-abc-dark rounded-lg p-4">
+                                    <h6 class="font-semibold mb-2">Revenue Opportunities</h6>
+                                    <div class="text-sm space-y-2">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-gray-400">Room Upgrade</span>
+                                            <span class="text-green-500">+$200</span>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-gray-400">Spa Package</span>
+                                            <span class="text-green-500">+$350</span>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-gray-400">Wine Pairing</span>
+                                            <span class="text-green-500">+$150</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">Perfect Service</h3>
-                        <p class="text-gray-400 text-sm">Personalized responses in seconds</p>
-                    </div>
-                </div>
-
-                <!-- Key Features -->
-                <div class="grid md:grid-cols-4 gap-4 mt-12 pt-8 border-t border-abc-light-gray">
-                    <div class="text-center">
-                        <p class="text-2xl mb-2">🔒</p>
-                        <p class="text-sm text-gray-400">Secure & Private</p>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-2xl mb-2">📊</p>
-                        <p class="text-sm text-gray-400">Analytics Dashboard</p>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-2xl mb-2">🔄</p>
-                        <p class="text-sm text-gray-400">Continuous Learning</p>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-2xl mb-2">🚀</p>
-                        <p class="text-sm text-gray-400">Instant Setup</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Current vs Vision Section -->
-    <section class="py-20 bg-abc-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display text-center mb-6">Start Today, Build Tomorrow</h2>
-            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">
-                Begin with powerful automation, grow into full AI concierge
-            </p>
             
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- What We Do Today -->
-                <div class="bg-abc-gray p-8 rounded-2xl border-2 border-abc-green">
-                    <span class="current-badge">AVAILABLE NOW</span>
-                    <h3 class="text-2xl font-semibold mb-6">ABC Today</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-abc-green mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <div>
-                                <strong class="text-white">WhatsApp Automation</strong>
-                                <p class="text-gray-400 text-sm mt-1">Instant responses to guest messages 24/7</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-abc-green mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <div>
-                                <strong class="text-white">Perfect Memory</strong>
-                                <p class="text-gray-400 text-sm mt-1">Never forget a guest preference or request</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-abc-green mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <div>
-                                <strong class="text-white">Human-in-the-Loop</strong>
-                                <p class="text-gray-400 text-sm mt-1">Staff can jump in anytime with full context</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-abc-green mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <div>
-                                <strong class="text-white">Basic Requests</strong>
-                                <p class="text-gray-400 text-sm mt-1">Handle FAQs, bookings, service requests</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-abc-green mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <div>
-                                <strong class="text-white">Guest Profiles</strong>
-                                <p class="text-gray-400 text-sm mt-1">Auto-build profiles from conversations</p>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="mt-8 p-4 bg-abc-dark rounded-lg">
-                        <p class="text-abc-green font-semibold">Ready in 2 hours</p>
-                        <p class="text-gray-400 text-sm">Quick setup, immediate value</p>
-                    </div>
-                </div>
-                
-                <!-- The Vision -->
-                <div class="bg-abc-gray p-8 rounded-2xl border-2 border-abc-blue opacity-90">
-                    <span class="vision-badge">THE VISION</span>
-                    <h3 class="text-2xl font-semibold mb-6">ABC Tomorrow</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-abc-blue mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
-                            <div>
-                                <strong class="text-white">Predictive Service</strong>
-                                <p class="text-gray-400 text-sm mt-1">Anticipate needs before guests ask</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-abc-blue mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
-                            <div>
-                                <strong class="text-white">Multi-Language</strong>
-                                <p class="text-gray-400 text-sm mt-1">Serve guests in 50+ languages</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-abc-blue mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
-                            <div>
-                                <strong class="text-white">Full Integration</strong>
-                                <p class="text-gray-400 text-sm mt-1">Connect with PMS, CRM, all systems</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-abc-blue mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
-                            <div>
-                                <strong class="text-white">Revenue Optimization</strong>
-                                <p class="text-gray-400 text-sm mt-1">Smart upselling at perfect moments</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-abc-blue mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
-                            <div>
-                                <strong class="text-white">Proactive Concierge</strong>
-                                <p class="text-gray-400 text-sm mt-1">Suggest experiences based on preferences</p>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="mt-8 p-4 bg-abc-dark rounded-lg">
-                        <p class="text-abc-blue font-semibold">Building with you</p>
-                        <p class="text-gray-400 text-sm">Your feedback shapes our roadmap</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-20 bg-abc-darker">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display text-center mb-16">Early Results from Pilot Hotels</h2>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray">
-                    <div class="flex items-center mb-4">
-                        <div class="text-abc-gold text-xl">★★★★★</div>
-                    </div>
-                    <blockquote class="text-lg mb-4">
-                        "We're responding to guests 10x faster. Our team loves having the conversation history at their fingertips."
-                    </blockquote>
-                    <cite class="text-gray-400">- Boutique Hotel, Miami (50 rooms)</cite>
-                </div>
-                
-                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray">
-                    <div class="flex items-center mb-4">
-                        <div class="text-abc-gold text-xl">★★★★★</div>
-                    </div>
-                    <blockquote class="text-lg mb-4">
-                        "ABC handles 70% of our WhatsApp messages automatically. My concierge can focus on what matters."
-                    </blockquote>
-                    <cite class="text-gray-400">- Resort Property, Tulum (120 rooms)</cite>
-                </div>
-                
-                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray">
-                    <div class="flex items-center mb-4">
-                        <div class="text-abc-gold text-xl">★★★★★</div>
-                    </div>
-                    <blockquote class="text-lg mb-4">
-                        "Setup took 2 hours. We were live the same day. It just works."
-                    </blockquote>
-                    <cite class="text-gray-400">- City Hotel, NYC (200 rooms)</cite>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing -->
-    <section class="py-20 bg-abc-dark" id="pricing">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display text-center mb-6">Simple, Transparent Pricing</h2>
-            <p class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">
-                Start small, grow as you see results
-            </p>
-            
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Pilot -->
-                <div class="bg-abc-gray p-8 rounded-2xl border-2 border-abc-gold relative">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-abc-gold text-abc-dark px-4 py-1 rounded-full text-sm font-semibold">
-                        LIMITED SPOTS
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-2">Pilot Program</h3>
-                    <p class="text-4xl font-bold text-abc-gold mb-6">$500<span class="text-lg text-gray-400">/month</span></p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-abc-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Up to 1,000 conversations
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-abc-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            WhatsApp integration
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-abc-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Full setup included
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-abc-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Founder support
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-abc-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            30-day guarantee
-                        </li>
-                    </ul>
-                    <a href="#demo" class="block w-full bg-abc-gold text-abc-dark py-3 rounded-full font-semibold text-center hover:bg-yellow-600 transition">
-                        Apply Now
-                    </a>
-                </div>
-                
-                <!-- Growth -->
-                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray opacity-75">
-                    <h3 class="text-2xl font-semibold mb-2">Growth</h3>
-                    <p class="text-4xl font-bold text-gray-400 mb-6">$2,000<span class="text-lg">/month</span></p>
-                    <p class="text-gray-400 mb-4">Coming Q2 2025</p>
-                    <ul class="space-y-3 mb-8 text-gray-400">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Unlimited conversations
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Multiple channels
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Advanced analytics
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Enterprise -->
-                <div class="bg-abc-gray p-8 rounded-2xl border border-abc-light-gray opacity-75">
-                    <h3 class="text-2xl font-semibold mb-2">Enterprise</h3>
-                    <p class="text-4xl font-bold text-gray-400 mb-6">Custom</p>
-                    <p class="text-gray-400 mb-4">For hotel groups</p>
-                    <ul class="space-y-3 mb-8 text-gray-400">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Multi-property
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Custom integrations
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            SLA guarantees
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="py-20 bg-abc-darker" id="faq">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display text-center mb-16">Honest Answers to Real Questions</h2>
-            
-            <div class="space-y-4">
-                <details class="bg-abc-gray rounded-lg p-6 border border-abc-light-gray">
-                    <summary class="font-semibold cursor-pointer">What happens when the AI doesn't know something?</summary>
-                    <p class="mt-4 text-gray-400">It immediately flags for human review. Your team gets an alert and can jump in with full context. We believe in AI + Human collaboration, not replacement.</p>
-                </details>
-                
-                <details class="bg-abc-gray rounded-lg p-6 border border-abc-light-gray">
-                    <summary class="font-semibold cursor-pointer">How long does setup really take?</summary>
-                    <p class="mt-4 text-gray-400">2-4 hours total. We handle most of it. You provide property info, connect WhatsApp, and we train ABC on your brand voice. Most hotels are live the same day.</p>
-                </details>
-                
-                <details class="bg-abc-gray rounded-lg p-6 border border-abc-light-gray">
-                    <summary class="font-semibold cursor-pointer">Is this replacing our staff?</summary>
-                    <p class="mt-4 text-gray-400">No. It's giving them superpowers. ABC handles routine questions so your team can focus on complex requests and building relationships. Staff love having more time for meaningful interactions.</p>
-                </details>
-                
-                <details class="bg-abc-gray rounded-lg p-6 border border-abc-light-gray">
-                    <summary class="font-semibold cursor-pointer">Can we customize responses?</summary>
-                    <p class="mt-4 text-gray-400">Yes. We train ABC on your brand voice, policies, and preferences. You can update responses anytime through the dashboard.</p>
-                </details>
-                
-                <details class="bg-abc-gray rounded-lg p-6 border border-abc-light-gray">
-                    <summary class="font-semibold cursor-pointer">What if we want to cancel?</summary>
-                    <p class="mt-4 text-gray-400">Cancel anytime. Export your data. No questions asked. We believe in earning your business every month, not locking you in.</p>
-                </details>
-                
-                <details class="bg-abc-gray rounded-lg p-6 border border-abc-light-gray">
-                    <summary class="font-semibold cursor-pointer">Why is it so affordable?</summary>
-                    <p class="mt-4 text-gray-400">We're in pilot mode. Early customers get lifetime discounted pricing in exchange for feedback that helps us build the perfect product for hotels.</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="py-20 bg-gradient-to-b from-abc-dark to-abc-darker" id="demo">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-display mb-6">Ready to Transform Your Guest Experience?</h2>
-            <p class="text-xl text-gray-400 mb-12">Join the pilot program and shape the future of hospitality</p>
-            
-            <div class="bg-abc-gray rounded-2xl p-8 mb-8 border border-abc-light-gray">
-                <div class="grid md:grid-cols-2 gap-8 text-left">
-                    <div>
-                        <h3 class="text-xl font-semibold mb-4">What You Get:</h3>
-                        <ul class="space-y-2 text-gray-400">
-                            <li>✓ Full setup and training (we do the work)</li>
-                            <li>✓ 30-day money-back guarantee</li>
-                            <li>✓ Direct access to founders</li>
-                            <li>✓ 50% off for life as early adopter</li>
+            <!-- Escalation Intelligence Matrix -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-semibold mb-8">Escalation Intelligence Matrix</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="bg-gradient-to-b from-green-900/20 to-abc-gray rounded-xl p-6 border border-green-500/30">
+                        <h4 class="text-lg font-semibold text-green-500 mb-4">Always AI</h4>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li>• Basic questions</li>
+                            <li>• Standard bookings</li>
+                            <li>• Known preferences</li>
+                            <li>• Routine requests</li>
+                            <li>• Information queries</li>
+                            <li>• Confirmations</li>
                         </ul>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-4">What We Need:</h3>
-                        <ul class="space-y-2 text-gray-400">
-                            <li>✓ 30+ room property</li>
-                            <li>✓ Active WhatsApp usage</li>
-                            <li>✓ Feedback to improve the product</li>
-                            <li>✓ 2-4 hours for setup</li>
+                    
+                    <div class="bg-gradient-to-b from-yellow-900/20 to-abc-gray rounded-xl p-6 border border-yellow-500/30">
+                        <h4 class="text-lg font-semibold text-yellow-500 mb-4">AI with Monitoring</h4>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li>• Complex logistics</li>
+                            <li>• Group coordination</li>
+                            <li>• Special dietary needs</li>
+                            <li>• Weather-dependent</li>
+                            <li>• Multi-day planning</li>
+                            <li>• Custom requests</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gradient-to-b from-orange-900/20 to-abc-gray rounded-xl p-6 border border-orange-500/30">
+                        <h4 class="text-lg font-semibold text-orange-500 mb-4">Human Enhanced</h4>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li>• VIP guests</li>
+                            <li>• Complaints</li>
+                            <li>• Special occasions</li>
+                            <li>• Crisis situations</li>
+                            <li>• Unique experiences</li>
+                            <li>• High-value requests</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gradient-to-b from-red-900/20 to-abc-gray rounded-xl p-6 border border-red-500/30">
+                        <h4 class="text-lg font-semibold text-red-500 mb-4">Always Human</h4>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li>• Medical emergencies</li>
+                            <li>• Security issues</li>
+                            <li>• Severe complaints</li>
+                            <li>• Legal matters</li>
+                            <li>• Safety concerns</li>
+                            <li>• PR situations</li>
                         </ul>
                     </div>
                 </div>
             </div>
             
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="mailto:pilot@abc.com?subject=Pilot Program Application" class="bg-abc-gold text-abc-dark px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-600 transition glow-hover">
-                    Apply for Pilot Program
-                </a>
-                <a href="mailto:hello@abc.com" class="border-2 border-abc-gold text-abc-gold px-8 py-4 rounded-full font-semibold text-lg hover:bg-abc-gold hover:text-abc-dark transition">
-                    Book a Call
-                </a>
-            </div>
-            
-            <p class="mt-8 text-gray-400">
-                Questions? Email us at <a href="mailto:hello@abc.com" class="text-abc-gold hover:underline">hello@abc.com</a>
-            </p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 bg-abc-darker border-t border-abc-gray">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400">&copy; 2024 ABC. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="text-gray-400 hover:text-abc-gold">Privacy</a>
-                    <a href="#" class="text-gray-400 hover:text-abc-gold">Terms</a>
-                    <a href="mailto:hello@abc.com" class="text-gray-400 hover:text-abc-gold">Contact</a>
+            <!-- Knowledge Architecture -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-semibold mb-8">The Knowledge Architecture</h3>
+                <div class="max-w-3xl mx-auto">
+                    <div class="relative">
+                        <!-- Pyramid visualization -->
+                        <div class="space-y-2">
+                            <!-- Apex -->
+                            <div class="bg-gradient-to-r from-abc-gold to-yellow-600 p-6 rounded-t-lg text-center">
+                                <h4 class="text-lg font-semibold text-abc-dark">Predictive Insights</h4>
+                                <p class="text-sm text-abc-dark/80 mt-1">Next likely request • Upsell opportunities • Satisfaction predictors</p>
+                            </div>
+                            
+                            <!-- Guest Layer -->
+                            <div class="bg-abc-gray p-6 border-x-2 border-abc-light-gray">
+                                <h4 class="text-lg font-semibold text-abc-gold">Individual Intelligence</h4>
+                                <p class="text-sm text-gray-400 mt-1">Personal preferences • Past interactions • Family information • Spending patterns</p>
+                            </div>
+                            
+                            <!-- Property Layer -->
+                            <div class="bg-abc-gray p-6 border-x-2 border-abc-light-gray">
+                                <h4 class="text-lg font-semibold text-abc-gold">Your Specific Data</h4>
+                                <p class="text-sm text-gray-400 mt-1">Room inventory • Restaurant menus • Spa services • Policies • Staff expertise</p>
+                            </div>
+                            
+                            <!-- Foundation -->
+                            <div class="bg-abc-dark p-6 rounded-b-lg border-2 border-abc-light-gray">
+                                <h4 class="text-lg font-semibold">Universal Knowledge</h4>
+                                <p class="text-sm text-gray-400 mt-1">Local area information • General preference patterns • Industry best practices</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+            <!-- Scale Advantage Visualization -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-semibold mb-8 text-center">The Scale Advantage</h3>
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <!-- Traditional -->
+                    <div class="bg-red-900/10 rounded-2xl p-8 border border-red-500/30">
+                        <h4 class="text-xl font-semibold text-red-500 mb-6">Traditional Concierge</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Staff to Guest Ratio</span>
+                                <span class="font-mono text-red-400">1:10</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Memory Retention</span>
+                                <span class="font-mono text-red-400">Shift-based</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Service Consistency</span>
+                                <span class="font-mono text-red-400">Variable</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Data Capture</span>
+                                <span class="font-mono text-red-400">Minimal</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Response Time</span>
+                                <span class="font-mono text-red-400">5-15 min</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">24/7 Availability</span>
+                                <span class="font-mono text-red-400">Expensive</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ABC-Augmented -->
+                    <div class="bg-green-900/10 rounded-2xl p-8 border border-green-500/30">
+                        <h4 class="text-xl font-semibold text-green-500 mb-6">ABC-Augmented Team</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Staff to Guest Ratio</span>
+                                <span class="font-mono text-green-400">1:150</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Memory Retention</span>
+                                <span class="font-mono text-green-400">Forever</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Service Consistency</span>
+                                <span class="font-mono text-green-400">100%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Data Capture</span>
+                                <span class="font-mono text-green-400">Everything</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Response Time</span>
+                                <span class="font-mono text-green-400">2 seconds</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">24/7 Availability</span>
+                                <span class="font-mono text-green-400">Included</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial -->
+            <div class="text-center mb-12">
+                <blockquote class="text-2xl text-gray-300 italic max-w-4xl mx-auto">
+                    "Seeing the dashboard changed everything. We realized our team wasn't being replaced - they were becoming superhuman."
+                </blockquote>
+                <p class="text-abc-gold mt-4">- Director of Operations, St. Regis Hotels</p>
+            </div>
+            
+            <!-- CTA -->
+            <div class="text-center">
+                <p class="text-lg text-gray-400 mb-6">Want to see your property's data in this system?</p>
+                <a href="#demo" class="bg-abc-gold text-abc-dark px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-600 transition glow-hover inline-block">
+                    Book a Personalized Demo
+                </a>
+            </div>
         </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn?.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    mobileMenu?.classList.add('hidden');
-                }
-            });
-        });
-
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards
-        document.querySelectorAll('.bg-abc-gray').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s, transform 0.6s';
-            observer.observe(el);
-        });
-    </script>
+    </section>
+    
+    <script src="script.js"></script>
 </body>
 </html>
